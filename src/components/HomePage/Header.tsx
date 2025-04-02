@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { Shield } from 'lucide-react';
 import SearchBar from '@/components/SearchBar';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { toast } from '@/components/ui/sonner';
+
 interface HeaderProps {
   onSearch: (searchTerm: string) => void;
   totalCompanies: number;
@@ -12,12 +13,7 @@ const Header: React.FC<HeaderProps> = ({
   totalCompanies
 }) => {
   const isMobile = useIsMobile();
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
-    toast.success("Link copied to clipboard", {
-      duration: 3000
-    });
-  };
+
   if (isMobile) {
     return <header className="bg-background dark:bg-gray-900 pt-6 pb-4 flex flex-col items-center justify-center animate-fade-in">
         <div className="container mx-auto px-4 flex flex-col items-center">
@@ -51,12 +47,6 @@ const Header: React.FC<HeaderProps> = ({
         
         <div className="w-full max-w-2xl mb-6">
           <SearchBar onSearch={onSearch} />
-        </div>
-        
-        <div className="text-center max-w-md mb-2">
-          <button onClick={handleCopyLink} className="text-primary hover:text-primary/80 text-sm font-medium transition-colors">
-            Share this tool
-          </button>
         </div>
       </div>
     </header>;

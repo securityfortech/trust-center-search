@@ -3,10 +3,18 @@ import React from 'react';
 import { Shield, Github, Twitter, Mail, Linkedin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { toast } from '@/components/ui/sonner';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const isMobile = useIsMobile();
+  
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    toast.success("Link copied to clipboard", {
+      duration: 3000
+    });
+  };
   
   return (
     <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-6 md:py-10 border-t border-gray-200 dark:border-gray-800">
@@ -37,6 +45,10 @@ const Footer: React.FC = () => {
                 <Mail className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
               </a>
             </div>
+            
+            <button onClick={handleCopyLink} className="text-primary hover:text-primary/80 text-xs md:text-sm font-medium transition-colors mt-1">
+              Share this tool
+            </button>
           </div>
           
           {/* Block 2: Links and navigation */}
