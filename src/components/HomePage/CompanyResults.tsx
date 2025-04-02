@@ -29,8 +29,8 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
 
   if (isInitialLoad) {
     return (
-      <div className="flex flex-col items-center justify-center py-6 animate-fade-in">
-        <Search className="h-10 w-10 text-gray-400 mb-3" />
+      <div className="flex flex-col items-center justify-center py-3 pb-4 animate-fade-in mt-0">
+        <Search className="h-10 w-10 text-gray-400 mb-2" />
         <p className="text-xl font-medium text-gray-800 dark:text-gray-200">Search for a company</p>
         <p className="text-muted-foreground mt-1 text-center max-w-md">
           Type a company name to start exploring trust centers and security compliance
@@ -40,16 +40,16 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
   }
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in bg-gray-50 dark:bg-gray-900 -mt-2 py-4 rounded-t-md">
       {filteredCompanies.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-6">
+        <div className="flex flex-col items-center justify-center py-3">
           <p className="text-xl font-medium text-gray-800 dark:text-gray-200">No companies found</p>
           <p className="text-muted-foreground mt-1 text-center max-w-md">
             Try a different search term or browse all companies
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 px-3 md:px-6">
           {filteredCompanies.map((company, index) => (
             <CompanyCard 
               key={`${company.Company}-${index}`} 
