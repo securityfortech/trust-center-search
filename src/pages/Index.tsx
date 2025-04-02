@@ -7,9 +7,13 @@ import DataProvider from '@/components/HomePage/DataProvider';
 import CompanyResults from '@/components/HomePage/CompanyResults';
 import { toast } from '@/components/ui/sonner';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Link } from 'react-router-dom';
+
 const GOOGLE_SHEETS_URL = 'https://docs.google.com/spreadsheets/d/197rabmQLoYSnGv-L27yTn2-lzPfXmI059BQQ_UhVevQ/edit?usp=sharing';
+
 const Index = () => {
   const isMobile = useIsMobile();
+  
   useEffect(() => {
     document.title = "Trust Center Search - Security & Compliance Database";
     const viewportMeta = document.querySelector('meta[name="viewport"]');
@@ -17,6 +21,7 @@ const Index = () => {
       viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
     }
   }, []);
+
   return <div className={`min-h-screen bg-background flex flex-col ${isMobile ? 'justify-between' : ''}`}>
       <DataProvider csvUrl={GOOGLE_SHEETS_URL}>
         {({
@@ -48,7 +53,7 @@ const Index = () => {
               {isMobile ? <footer className="w-full bg-gray-100 dark:bg-gray-800 py-4 mt-2 border-t border-gray-200 dark:border-gray-700">
                   <div className="container mx-auto px-4">
                     <div className="flex justify-center space-x-6 text-sm text-gray-600 dark:text-gray-400">
-                      <a href="#" className="hover:underline">Settings</a>
+                      <Link to="/add-trust-center" className="hover:underline">Add your Trust Center</Link>
                       <a href="#" className="hover:underline">Privacy</a>
                       <a href="#" className="hover:underline">Terms</a>
                     </div>
@@ -59,4 +64,5 @@ const Index = () => {
       </DataProvider>
     </div>;
 };
+
 export default Index;
