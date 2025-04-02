@@ -45,41 +45,39 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
           <p className="text-sm text-muted-foreground">
             View this company's trust center for more information.
           </p>
-          
-          {hasSOC && (
-            <div className="mt-3">
-              <div className="flex flex-col items-start">
-                <img 
-                  src="/img/soc-logo.jpg" 
-                  alt="AICPA SOC Certification" 
-                  className="h-12 w-12 object-contain mb-2" 
-                />
-                <div className="flex flex-wrap gap-1">
-                  {company['AICPA SOC 1'] === 'TRUE' && (
-                    <Badge variant="secondary" className="text-xs">SOC 1</Badge>
-                  )}
-                  {company['AICPA SOC 2'] === 'TRUE' && (
-                    <Badge variant="secondary" className="text-xs">SOC 2</Badge>
-                  )}
-                  {company['AICPA SOC 3'] === 'TRUE' && (
-                    <Badge variant="secondary" className="text-xs">SOC 3</Badge>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </CardContent>
-      <CardFooter className="text-xs text-muted-foreground pt-0">
+      <CardFooter className="flex flex-col items-start pt-0">
         {company['Trust Center URL'] && (
           <a 
             href={company['Trust Center URL']} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-primary hover:underline"
+            className="text-primary hover:underline text-xs"
           >
             View Trust Center
           </a>
+        )}
+        
+        {hasSOC && (
+          <div className="mt-3 flex flex-col items-start">
+            <img 
+              src="/img/soc-logo.jpg" 
+              alt="AICPA SOC Certification" 
+              className="h-12 w-12 object-contain mb-2" 
+            />
+            <div className="flex flex-wrap gap-1">
+              {company['AICPA SOC 1'] === 'TRUE' && (
+                <Badge variant="secondary" className="text-xs">SOC 1</Badge>
+              )}
+              {company['AICPA SOC 2'] === 'TRUE' && (
+                <Badge variant="secondary" className="text-xs">SOC 2</Badge>
+              )}
+              {company['AICPA SOC 3'] === 'TRUE' && (
+                <Badge variant="secondary" className="text-xs">SOC 3</Badge>
+              )}
+            </div>
+          </div>
         )}
       </CardFooter>
     </Card>
