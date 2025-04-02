@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Shield } from 'lucide-react';
 import SearchBar from '@/components/SearchBar';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 interface HeaderProps {
   onSearch: (searchTerm: string) => void;
   totalCompanies: number;
@@ -11,6 +13,7 @@ const Header: React.FC<HeaderProps> = ({
   totalCompanies
 }) => {
   const isMobile = useIsMobile();
+
   if (isMobile) {
     return <header className="bg-background dark:bg-gray-900 pt-4 pb-1 flex flex-col items-center justify-center animate-fade-in">
         <div className="container mx-auto px-4 flex flex-col items-center">
@@ -30,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({
         </div>
       </header>;
   }
-  return <header className="bg-white dark:bg-gray-900 flex flex-col items-center justify-center min-h-[30vh] pb-1 animate-fade-in ">
+  return <header className="bg-white dark:bg-gray-900 flex flex-col items-center justify-center min-h-[30vh] pb-1 animate-fade-in">
       <div className="container mx-auto px-4 flex flex-col items-center">
         <div className="mb-4 md:mb-4 text-center">
           <div className="flex items-center justify-center">
