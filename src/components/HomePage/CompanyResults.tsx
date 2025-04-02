@@ -2,7 +2,6 @@
 import React from 'react';
 import CompanyCard from '@/components/CompanyCard';
 import { CompanyData } from '@/hooks/useCompanyData';
-import { Building } from 'lucide-react';
 
 interface CompanyResultsProps {
   isInitialLoad: boolean;
@@ -28,12 +27,6 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
 
   return (
     <>
-      <div className="flex justify-between items-center mb-4">
-        <p className="text-sm text-muted-foreground">
-          Showing {filteredCompanies.length} of {companies.length} companies
-        </p>
-      </div>
-      
       {filteredCompanies.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-lg font-medium">No companies found</p>
