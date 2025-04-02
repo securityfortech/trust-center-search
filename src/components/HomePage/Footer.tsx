@@ -9,11 +9,11 @@ const Footer: React.FC = () => {
   const isMobile = useIsMobile();
   
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-6 md:py-12 border-t border-gray-200 dark:border-gray-800">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-6 md:py-10 border-t border-gray-200 dark:border-gray-800">
+      <div className="container mx-auto px-3 md:px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
           {/* Block 1: Brand and description */}
-          <div className="space-y-4 text-center md:text-left flex flex-col items-center md:items-start">
+          <div className="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
             <div className="flex items-center justify-center md:justify-start">
               <Shield className="h-5 w-5 md:h-6 md:w-6 text-primary mr-2" />
               <h3 className="text-base md:text-lg font-semibold">Trust Center Search</h3>
@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
             </p>
             
             {/* Social media icons */}
-            <div className="flex space-x-4 pt-2 justify-center md:justify-start">
+            <div className="flex space-x-4 pt-1 justify-center md:justify-start">
               <a href="#" aria-label="GitHub" className="hover:scale-105 transition-transform">
                 <Github className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
               </a>
@@ -40,10 +40,10 @@ const Footer: React.FC = () => {
           </div>
           
           {/* Block 2: Links and navigation */}
-          <div className="space-y-4 text-center md:text-right">
+          <div className="space-y-3 text-center md:text-right">
             <h3 className="text-base md:text-lg font-semibold">Links</h3>
             {/* Company links - horizontal on mobile, vertical on desktop */}
-            <div className={isMobile ? "flex flex-wrap justify-center gap-4 pt-2" : "space-y-3 pt-2 flex flex-col items-end"}>
+            <div className={isMobile ? "flex flex-wrap justify-center gap-3 pt-1" : "space-y-2 pt-1 flex flex-col items-end"}>
               <a href="#" className="text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">
                 About Us
               </a>
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <Separator className="my-4 md:my-8" />
+        <Separator className="my-3 md:my-6" />
         
         <div className="flex flex-col md:flex-row items-center justify-center text-xs md:text-sm text-center">
           <p className="text-gray-600 dark:text-gray-400">© {currentYear} Trust Center Explorer</p>
