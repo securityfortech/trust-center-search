@@ -50,9 +50,9 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
             <div className="mt-3">
               <div className="flex flex-col items-start">
                 <img 
-                  src="/soc-logo.jpg" 
-                  alt="SOC Certification" 
-                  className="h-16 w-16 object-contain mb-2" 
+                  src="/lovable-uploads/22d4dc84-5159-4ac0-99ce-bdc36cc93479.png" 
+                  alt="AICPA SOC Certification" 
+                  className="h-20 w-20 object-contain mb-2" 
                 />
                 <div className="flex flex-wrap gap-1">
                   {company['SOC 1'] === 'TRUE' && (
@@ -87,3 +87,4 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
 };
 
 export default CompanyCard;
+
