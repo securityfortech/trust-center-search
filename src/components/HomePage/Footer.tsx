@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center">
               <Shield className="h-6 w-6 text-primary mr-2" />
-              <h3 className="text-lg font-semibold">TrustCenterDB</h3>
+              <h3 className="text-lg font-semibold">Trust Center Explorer</h3>
             </div>
             <p className="text-sm text-muted-foreground">
               The comprehensive database for security and compliance certifications from major companies.
