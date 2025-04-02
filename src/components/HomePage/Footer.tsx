@@ -9,12 +9,12 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Combined brand section with links */}
-          <div className="space-y-4 md:col-span-3">
-            <div className="flex items-center">
+          <div className="space-y-4 md:col-span-3 text-center flex flex-col items-center">
+            <div className="flex items-center justify-center">
               <Shield className="h-6 w-6 text-primary mr-2" />
               <h3 className="text-lg font-semibold">Trust Center Search</h3>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md">
               The comprehensive database for security and compliance certifications from major companies.
             </p>
             
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             </ul>
             
             {/* Social media icons */}
-            <div className="flex space-x-4 pt-2">
+            <div className="flex space-x-4 pt-2 justify-center">
               <a href="#" aria-label="GitHub" className="hover:scale-105 transition-transform">
                 <Github className="h-5 w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
               </a>
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
 
         <Separator className="my-8" />
         
-        <div className="flex flex-col md:flex-row items-center justify-between text-sm">
+        <div className="flex flex-col md:flex-row items-center justify-center text-sm text-center">
           <p className="text-gray-600 dark:text-gray-400">© {currentYear} Trust Center Explorer - Security & Compliance Certification Search Engine</p>
         </div>
       </div>
