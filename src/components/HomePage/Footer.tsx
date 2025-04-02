@@ -1,14 +1,15 @@
 
 import React from 'react';
-import { Shield, Github, Twitter, Mail, ExternalLink } from 'lucide-react';
+import { Shield, Github, Twitter, Mail, ExternalLink, Linkedin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-muted mt-auto py-10">
+    <footer className="bg-muted mt-auto py-8 border-t border-gray-200">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand section */}
@@ -73,7 +74,8 @@ const Footer: React.FC = () => {
               Subscribe to our newsletter for updates on new certifications and features.
             </p>
             <div className="flex space-x-2">
-              <Button variant="outline" size="sm" className="w-full">
+              <Input type="email" placeholder="Your email" className="h-9" />
+              <Button variant="outline" size="sm">
                 Subscribe
               </Button>
             </div>
@@ -83,6 +85,9 @@ const Footer: React.FC = () => {
               </a>
               <a href="#" aria-label="Twitter">
                 <Twitter className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <Linkedin className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
               </a>
               <a href="#" aria-label="Email">
                 <Mail className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />

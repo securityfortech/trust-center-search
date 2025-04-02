@@ -9,21 +9,21 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onSearch }) => {
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-sm">
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex flex-col items-center justify-center space-y-4">
-          <div className="flex items-center">
-            <Shield className="h-8 w-8 text-primary mr-2" />
-            <h1 className="text-3xl font-bold text-trust-dark dark:text-white">
+    <header className="bg-white dark:bg-gray-900 pt-28 pb-12 flex flex-col items-center justify-center">
+      <div className="container mx-auto px-4 flex flex-col items-center">
+        <div className="mb-8">
+          <div className="flex items-center justify-center">
+            <Shield className="h-12 w-12 text-primary mr-3" />
+            <h1 className="text-4xl sm:text-5xl font-bold text-trust-dark dark:text-white">
               TrustCenterDB
             </h1>
           </div>
-          <p className="text-center text-muted-foreground max-w-2xl">
-            Find and browse trust centers from major companies
-          </p>
-          <div className="w-full max-w-3xl mt-4">
-            <SearchBar onSearch={onSearch} />
-          </div>
+        </div>
+        <p className="text-center text-muted-foreground max-w-2xl mb-8 text-lg">
+          Find and browse trust centers from major companies
+        </p>
+        <div className="w-full max-w-2xl shadow-lg rounded-full">
+          <SearchBar onSearch={onSearch} />
         </div>
       </div>
     </header>

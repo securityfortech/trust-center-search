@@ -10,7 +10,7 @@ const CSV_URL = 'https://raw.githubusercontent.com/securityfortech/trust-center-
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <DataProvider csvUrl={CSV_URL}>
         {({
           companies,
@@ -22,9 +22,11 @@ const Index = () => {
           <>
             <Header onSearch={handleSearch} />
             
-            <main className="container mx-auto px-4 py-6">
+            <main className="container mx-auto px-4 py-6 flex-grow">
               {isLoading ? (
-                <LoadingIndicator />
+                <div className="flex justify-center items-center h-32">
+                  <LoadingIndicator />
+                </div>
               ) : (
                 <div className="mt-6">
                   <CompanyResults
