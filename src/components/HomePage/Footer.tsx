@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
 
           {/* Company section - replacing the Newsletter section */}
           <div className="space-y-4">
-            <h3 className="text-md font-semibold">SecurityforTech</h3>
+            <h3 className="text-md font-semibold">Company</h3>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">About Us</a>
