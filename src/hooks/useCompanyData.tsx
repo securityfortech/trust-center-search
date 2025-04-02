@@ -52,6 +52,7 @@ export const useCompanyData = (dataUrl: string) => {
         header: true,
         skipEmptyLines: true,
         complete: (results) => {
+          console.log('CSV data parsed:', results.data.length, 'companies found');
           const data = results.data as CompanyData[];
           setCompanies(data);
           

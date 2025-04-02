@@ -12,6 +12,7 @@ export const useCompanyFilter = (companies: CompanyData[]) => {
   // Initialize Fuse for searching in company names
   useEffect(() => {
     if (companies.length > 0) {
+      console.log('Initializing Fuse.js with', companies.length, 'companies');
       setFuse(new Fuse(companies, {
         keys: ['Company'],  // Focus search on company names
         threshold: 0.3,
@@ -28,6 +29,7 @@ export const useCompanyFilter = (companies: CompanyData[]) => {
     if (searchTerm && fuse) {
       const searchResults = fuse.search(searchTerm);
       results = searchResults.map(result => result.item);
+      console.log('Search results for:', searchTerm, 'found', results.length, 'companies');
     }
     
     setFilteredCompanies(results);
@@ -39,6 +41,7 @@ export const useCompanyFilter = (companies: CompanyData[]) => {
 
   // Memoize handleSearch to avoid unnecessary rerenders
   const handleSearch = useCallback((term: string) => {
+    console.log('Search term changed to:', term);
     setSearchTerm(term);
     if (term.trim() !== '') {
       setIsInitialLoad(false);
