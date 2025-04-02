@@ -15,12 +15,12 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
           <div className="flex items-center justify-center">
             <Shield className="h-12 w-12 text-primary mr-3" />
             <h1 className="text-4xl sm:text-5xl font-bold text-trust-dark dark:text-white">
-              TrustCenterDB
+              Trust Center Search
             </h1>
           </div>
         </div>
         <p className="text-center text-muted-foreground max-w-2xl mb-8 text-lg">
-          Find and browse trust centers from major companies
+          Find and explore trust center details from major companies
         </p>
         <div className="w-full max-w-2xl shadow-lg rounded-full">
           <SearchBar onSearch={onSearch} />
