@@ -1,9 +1,10 @@
 
 import React from 'react';
-import { Shield, Github, Twitter, Mail, Linkedin } from 'lucide-react';
+import { Shield, Github, Twitter, Mail, Linkedin, Plus } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { toast } from '@/components/ui/sonner';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -43,9 +44,15 @@ const Footer: React.FC = () => {
               </a>
             </div>
             
-            <button onClick={handleCopyLink} className="text-primary hover:text-primary/80 text-xs md:text-sm font-medium transition-colors mt-1">
-              Share this tool
-            </button>
+            <div className="flex space-x-4 items-center">
+              <button onClick={handleCopyLink} className="text-primary hover:text-primary/80 text-xs md:text-sm font-medium transition-colors">
+                Share this tool
+              </button>
+              <Link to="/add-trust-center" className="text-primary hover:text-primary/80 text-xs md:text-sm font-medium transition-colors flex items-center">
+                <Plus className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                Add Trust Center
+              </Link>
+            </div>
           </div>
           
           {/* Block 2: Links and navigation */}
