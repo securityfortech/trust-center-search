@@ -29,10 +29,10 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
 
   if (isInitialLoad) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 animate-fade-in">
-        <Search className="h-12 w-12 text-gray-400 mb-4" />
+      <div className="flex flex-col items-center justify-center py-6 animate-fade-in">
+        <Search className="h-10 w-10 text-gray-400 mb-3" />
         <p className="text-xl font-medium text-gray-800 dark:text-gray-200">Search for a company</p>
-        <p className="text-muted-foreground mt-2 text-center max-w-md">
+        <p className="text-muted-foreground mt-1 text-center max-w-md">
           Type a company name to start exploring trust centers and security compliance
         </p>
       </div>
@@ -42,9 +42,9 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
   return (
     <div className="animate-fade-in">
       {filteredCompanies.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-12">
+        <div className="flex flex-col items-center justify-center py-6">
           <p className="text-xl font-medium text-gray-800 dark:text-gray-200">No companies found</p>
-          <p className="text-muted-foreground mt-2 text-center max-w-md">
+          <p className="text-muted-foreground mt-1 text-center max-w-md">
             Try a different search term or browse all companies
           </p>
         </div>
