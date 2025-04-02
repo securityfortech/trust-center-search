@@ -52,7 +52,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
                 <img 
                   src="/img/soc-logo.jpg" 
                   alt="AICPA SOC Certification" 
-                  className="h-20 w-20 object-contain mb-2" 
+                  className="h-12 w-12 object-contain mb-2" 
                 />
                 <div className="flex flex-wrap gap-1">
                   {company['AICPA SOC 1'] === 'TRUE' && (
