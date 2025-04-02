@@ -15,10 +15,16 @@ const Index = () => {
   const isMobile = useIsMobile();
   
   useEffect(() => {
-    document.title = "Trust Center Search - Security & Compliance Database";
+    document.title = "Trust Center Search - search.securityfortech.com";
     const viewportMeta = document.querySelector('meta[name="viewport"]');
     if (viewportMeta) {
       viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
+    
+    // Update meta description for better SEO
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Search and explore trust centers and security compliance information for tech companies at search.securityfortech.com');
     }
   }, []);
 
