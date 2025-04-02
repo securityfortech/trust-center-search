@@ -19,12 +19,12 @@ const Header: React.FC<HeaderProps> = ({
     return (
       <header className="bg-background dark:bg-gray-900 pt-4 pb-2 flex flex-col items-center justify-center animate-fade-in">
         <div className="container mx-auto px-4 flex flex-col items-center">
-          <div className="mb-4 mt-2 text-center">
+          <div className="mb-8 mt-2 text-center">
             <div className="flex items-center justify-center">
               <Shield className="h-6 w-6 text-primary mr-2" />
               <h1 className="text-3xl font-bold text-trust-dark dark:text-white">Trust Center</h1>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-3">
               Find and explore Trust Centers from {totalCompanies} leading companies
             </p>
           </div>
@@ -40,12 +40,12 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header className="bg-white dark:bg-gray-900 flex flex-col items-center justify-center min-h-[25vh] pb-2 animate-fade-in">
       <div className="container mx-auto px-4 flex flex-col items-center relative">
-        <div className="mb-6 md:mb-6 text-center">
+        <div className="mb-10 md:mb-10 text-center">
           <div className="flex items-center justify-center">
             <Shield className="h-10 w-10 md:h-14 md:w-14 text-primary mr-3" />
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-trust-dark dark:text-white">Trust Center Search</h1>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 md:mt-3">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 md:mt-4">
             Find and explore Trust Centers from {totalCompanies} leading companies
           </p>
         </div>
