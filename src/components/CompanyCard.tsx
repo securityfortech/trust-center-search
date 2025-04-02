@@ -21,7 +21,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
                 company['SOC 2'] === 'TRUE' || 
                 company['SOC 3'] === 'TRUE';
   
-  console.log('Company:', company.Company, 'Has SOC:', hasSOC);
+  console.log('Company:', company.Company, 'Has SOC:', hasSOC, 'SOC 1:', company['SOC 1'], 'SOC 2:', company['SOC 2'], 'SOC 3:', company['SOC 3']);
   
   return (
     <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in">
@@ -50,7 +50,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
             <div className="mt-3">
               <div className="flex flex-col items-start">
                 <img 
-                  src="/soc-logo.png" 
+                  src="/lovable-uploads/3e8e4880-8a74-45c0-99e9-fbf69b79da60.png" 
                   alt="AICPA SOC Certification" 
                   className="h-20 w-20 object-contain mb-2" 
                 />
