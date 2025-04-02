@@ -1,26 +1,10 @@
 
-import React, { useState } from 'react';
-import { Shield, Github, Twitter, Mail, Linkedin, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { Shield, Github, Twitter, Mail, Linkedin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { toast } from 'sonner';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState('');
-  
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      toast.success('Thanks for subscribing!', {
-        description: 'You will now receive our newsletter.',
-      });
-      setEmail('');
-    } else {
-      toast.error('Please enter your email address');
-    }
-  };
 
   return (
     <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-12 border-t border-gray-200 dark:border-gray-800">
@@ -37,31 +21,23 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Newsletter section */}
+          {/* Company section - replacing the Newsletter section */}
           <div className="space-y-4">
-            <h3 className="text-md font-semibold">Stay Updated</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Subscribe for updates on new certifications and features.
-            </p>
-            <form onSubmit={handleSubscribe} className="space-y-2">
-              <div className="flex flex-col space-y-2">
-                <Input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="h-10 border-2 focus:border-primary" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <Button 
-                  type="submit" 
-                  variant="default"
-                  className="w-full flex items-center justify-center"
-                >
-                  Subscribe
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </form>
+            <h3 className="text-md font-semibold">Company</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">About Us</a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Terms of Service</a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Contact</a>
+              </li>
+            </ul>
             <div className="flex space-x-4 pt-2">
               <a href="#" aria-label="GitHub" className="hover:scale-105 transition-transform">
                 <Github className="h-5 w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
