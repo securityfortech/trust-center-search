@@ -8,17 +8,14 @@ import CompanyResults from '@/components/HomePage/CompanyResults';
 import { toast } from '@/components/ui/sonner';
 import { useIsMobile } from '@/hooks/use-mobile';
 
-// Google Sheets URL
 const GOOGLE_SHEETS_URL = 'https://docs.google.com/spreadsheets/d/197rabmQLoYSnGv-L27yTn2-lzPfXmI059BQQ_UhVevQ/edit?usp=sharing';
 
 const Index = () => {
   const isMobile = useIsMobile();
   
-  // Set page title and meta viewport for better mobile experience
   useEffect(() => {
     document.title = "Trust Center Search - Security & Compliance Database";
     
-    // Ensure the viewport meta tag is set correctly for mobile
     const viewportMeta = document.querySelector('meta[name="viewport"]');
     if (viewportMeta) {
       viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
@@ -36,7 +33,6 @@ const Index = () => {
           handleSearch,
           totalCompanies,
         }) => {
-          // Show error toast if data fails to load
           useEffect(() => {
             if (companies.length === 0 && !isLoading) {
               toast.error("Error loading company data. Please try again later.", {
@@ -52,7 +48,7 @@ const Index = () => {
                 totalCompanies={totalCompanies} 
               />
               
-              <main className={`container mx-auto ${isMobile ? 'px-2 mt-0' : 'px-4 pb-8 -mt-6'} py-2 ${isMobile ? 'flex-1' : ''}`}>
+              <main className={`container mx-auto ${isMobile ? 'px-2 mt-0' : 'px-4 pb-8 -mt-4'} py-2 ${isMobile ? 'flex-1' : ''}`}>
                 {isLoading ? (
                   <div className="flex justify-center items-center h-24">
                     <LoadingIndicator />
