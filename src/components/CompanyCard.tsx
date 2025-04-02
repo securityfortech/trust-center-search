@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,6 +11,8 @@ interface CompanyCardProps {
     'AICPA SOC 1'?: string;
     'AICPA SOC 2'?: string;
     'AICPA SOC 3'?: string;
+    'ISO 27001'?: string;
+    'PCI DSS Level 1'?: string;
     [key: string]: string | undefined;
   };
 }
@@ -19,6 +22,15 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
   const hasSOC = company['AICPA SOC 1'] === 'TRUE' || 
                 company['AICPA SOC 2'] === 'TRUE' || 
                 company['AICPA SOC 3'] === 'TRUE';
+  
+  // Check if the company has ISO 27001 certification
+  const hasISO27001 = company['ISO 27001'] === 'TRUE';
+  
+  // Check if the company has PCI DSS Level 1 certification
+  const hasPCIDSS = company['PCI DSS Level 1'] === 'TRUE';
+  
+  // Check if the company has any certifications to display
+  const hasCertifications = hasSOC || hasISO27001 || hasPCIDSS;
   
   console.log('Company:', company.Company, 'Has SOC:', hasSOC, 'SOC 1:', company['AICPA SOC 1'], 'SOC 2:', company['AICPA SOC 2'], 'SOC 3:', company['AICPA SOC 3']);
   
@@ -58,7 +70,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
           </a>
         )}
         
-        {hasSOC && (
+        {hasCertifications && (
           <div className="mt-3 flex flex-col items-start">
             <div className="flex flex-wrap gap-1">
               {company['AICPA SOC 1'] === 'TRUE' && (
@@ -69,6 +81,12 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
               )}
               {company['AICPA SOC 3'] === 'TRUE' && (
                 <Badge variant="secondary" className="text-xs">SOC 3</Badge>
+              )}
+              {hasISO27001 && (
+                <Badge variant="secondary" className="text-xs">ISO 27001</Badge>
+              )}
+              {hasPCIDSS && (
+                <Badge variant="secondary" className="text-xs">PCI DSS</Badge>
               )}
             </div>
           </div>
