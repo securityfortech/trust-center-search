@@ -35,8 +35,13 @@ const Header: React.FC<HeaderProps> = ({
           </div>
           
           <div className="w-full flex justify-center mt-2">
-            <Button variant="outline" size="sm" asChild className="text-xs">
-              <Link to="/add-trust-center">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              asChild 
+              className="text-xs flex items-center justify-center"
+            >
+              <Link to="/add-trust-center" className="flex items-center">
                 <Plus className="h-3 w-3 mr-1" />
                 Add your Trust Center
               </Link>
@@ -49,8 +54,13 @@ const Header: React.FC<HeaderProps> = ({
   return <header className="bg-white dark:bg-gray-900 flex flex-col items-center justify-center min-h-[25vh] pb-2 animate-fade-in">
       <div className="container mx-auto px-4 flex flex-col items-center relative">
         <div className="absolute top-2 right-4">
-          <Button variant="outline" size="sm" asChild>
-            <Link to="/add-trust-center">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            asChild 
+            className="flex items-center justify-center"
+          >
+            <Link to="/add-trust-center" className="flex items-center">
               <Plus className="h-4 w-4 mr-1" />
               Add your Trust Center
             </Link>
