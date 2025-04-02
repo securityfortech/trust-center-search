@@ -28,22 +28,6 @@ const Footer: React.FC = () => {
             </div>
             <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-md px-2 md:px-0">A search engine for security and compliance certifications from leading companies.</p>
             
-            {/* Social media icons */}
-            <div className="flex space-x-4 pt-1 justify-center md:justify-start">
-              <a href="#" aria-label="GitHub" className="hover:scale-105 transition-transform">
-                <Github className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
-              </a>
-              <a href="#" aria-label="Twitter" className="hover:scale-105 transition-transform">
-                <Twitter className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="hover:scale-105 transition-transform">
-                <Linkedin className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
-              </a>
-              <a href="#" aria-label="Email" className="hover:scale-105 transition-transform">
-                <Mail className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
-              </a>
-            </div>
-            
             <div className="flex flex-col space-y-2 items-center md:items-start">
               <Link to="/add-trust-center" className="text-primary hover:text-primary/80 text-xs md:text-sm font-medium transition-colors">
                 Add your Trust Center
@@ -51,6 +35,22 @@ const Footer: React.FC = () => {
               <button onClick={handleCopyLink} className="text-primary hover:text-primary/80 text-xs md:text-sm font-medium transition-colors">
                 Share this tool
               </button>
+              
+              {/* Social media icons moved here */}
+              <div className="flex space-x-4 pt-1 justify-center md:justify-start">
+                <a href="#" aria-label="GitHub" className="hover:scale-105 transition-transform">
+                  <Github className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
+                </a>
+                <a href="#" aria-label="Twitter" className="hover:scale-105 transition-transform">
+                  <Twitter className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
+                </a>
+                <a href="#" aria-label="LinkedIn" className="hover:scale-105 transition-transform">
+                  <Linkedin className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
+                </a>
+                <a href="#" aria-label="Email" className="hover:scale-105 transition-transform">
+                  <Mail className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
+                </a>
+              </div>
             </div>
           </div>
           
