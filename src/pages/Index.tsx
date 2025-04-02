@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import LoadingIndicator from '@/components/LoadingIndicator';
 import Header from '@/components/HomePage/Header';
@@ -36,10 +37,10 @@ const Index = () => {
         return <>
               <Header onSearch={handleSearch} totalCompanies={totalCompanies} />
               
-              <main className="">
-                {isLoading ? <div className="flex justify-center items-center h-24">
+              <main className="mt-0">
+                {isLoading ? <div className="flex justify-center items-center h-16">
                     <LoadingIndicator />
-                  </div> : <div className={`${isMobile ? 'mt-2' : 'mt-0'}`}>
+                  </div> : <div className={`${isMobile ? 'mt-0' : 'mt-0'}`}>
                     <CompanyResults isInitialLoad={isInitialLoad} filteredCompanies={filteredCompanies} companies={companies} />
                   </div>}
               </main>
