@@ -32,6 +32,18 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
   // Check if the company has any certifications to display
   const hasCertifications = hasSOC || hasISO27001 || hasPCIDSS;
   
+  // Collect certifications for sorting
+  const certificationBadges = [
+    ...(company['AICPA SOC 1'] === 'TRUE' ? ['SOC 1'] : []),
+    ...(company['AICPA SOC 2'] === 'TRUE' ? ['SOC 2'] : []),
+    ...(company['AICPA SOC 3'] === 'TRUE' ? ['SOC 3'] : []),
+    ...(hasISO27001 ? ['ISO 27001'] : []),
+    ...(hasPCIDSS ? ['PCI DSS'] : [])
+  ];
+
+  // Sort certifications alphabetically
+  const sortedCertificationBadges = certificationBadges.sort();
+  
   console.log('Company:', company.Company, 'Has SOC:', hasSOC, 'SOC 1:', company['AICPA SOC 1'], 'SOC 2:', company['AICPA SOC 2'], 'SOC 3:', company['AICPA SOC 3']);
   
   return (
@@ -73,21 +85,9 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
         {hasCertifications && (
           <div className="mt-3 flex flex-col items-start">
             <div className="flex flex-wrap gap-1">
-              {company['AICPA SOC 1'] === 'TRUE' && (
-                <Badge variant="secondary" className="text-xs">SOC 1</Badge>
-              )}
-              {company['AICPA SOC 2'] === 'TRUE' && (
-                <Badge variant="secondary" className="text-xs">SOC 2</Badge>
-              )}
-              {company['AICPA SOC 3'] === 'TRUE' && (
-                <Badge variant="secondary" className="text-xs">SOC 3</Badge>
-              )}
-              {hasISO27001 && (
-                <Badge variant="secondary" className="text-xs">ISO 27001</Badge>
-              )}
-              {hasPCIDSS && (
-                <Badge variant="secondary" className="text-xs">PCI DSS</Badge>
-              )}
+              {sortedCertificationBadges.map((cert) => (
+                <Badge key={cert} variant="secondary" className="text-xs">{cert}</Badge>
+              ))}
             </div>
           </div>
         )}
@@ -97,3 +97,4 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
 };
 
 export default CompanyCard;
+
