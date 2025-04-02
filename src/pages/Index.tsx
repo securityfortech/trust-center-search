@@ -48,12 +48,18 @@ const Index = () => {
         return <>
               <Header onSearch={handleSearch} totalCompanies={totalCompanies} />
               
-              <main className="mt-0">
-                {isLoading ? <div className="flex justify-center items-center h-16">
+              <main className="flex-grow px-4 md:px-6 lg:px-8 pt-2 pb-6">
+                {isLoading ? (
+                  <div className="flex justify-center items-center h-16">
                     <LoadingIndicator />
-                  </div> : <div className={`${isMobile ? 'mt-0' : 'mt-0'}`}>
-                    <CompanyResults isInitialLoad={isInitialLoad} filteredCompanies={filteredCompanies} companies={companies} />
-                  </div>}
+                  </div>
+                ) : (
+                  <CompanyResults 
+                    isInitialLoad={isInitialLoad} 
+                    filteredCompanies={filteredCompanies} 
+                    companies={companies} 
+                  />
+                )}
               </main>
               
               {isMobile ? <footer className="w-full bg-gray-100 dark:bg-gray-800 py-4 mt-2 border-t border-gray-200 dark:border-gray-700">
