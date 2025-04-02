@@ -45,7 +45,7 @@ const Index = () => {
                   </div>}
               </main>
               
-              {isMobile ? <footer className="w-full bg-gray-100 dark:bg-gray-800 py-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+              {isMobile ? <footer className="w-full bg-gray-100 dark:bg-gray-800 py-4 mt-2 border-t border-gray-200 dark:border-gray-700">
                   <div className="container mx-auto px-4">
                     <div className="flex justify-center space-x-6 text-sm text-gray-600 dark:text-gray-400">
                       <a href="#" className="hover:underline">Settings</a>
