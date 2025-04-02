@@ -45,22 +45,24 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
           </p>
           
           {hasSOC && (
-            <div className="flex items-center gap-2 mt-2">
-              <img 
-                src="/soc-logo.jpg" 
-                alt="SOC Certification" 
-                className="h-8 w-8 object-contain" 
-              />
-              <div className="flex flex-wrap gap-1">
-                {company['SOC 1'] === 'TRUE' && (
-                  <Badge variant="secondary" className="text-xs">SOC 1</Badge>
-                )}
-                {company['SOC 2'] === 'TRUE' && (
-                  <Badge variant="secondary" className="text-xs">SOC 2</Badge>
-                )}
-                {company['SOC 3'] === 'TRUE' && (
-                  <Badge variant="secondary" className="text-xs">SOC 3</Badge>
-                )}
+            <div className="mt-3">
+              <div className="flex items-center">
+                <img 
+                  src="/soc-logo.jpg" 
+                  alt="SOC Certification" 
+                  className="h-10 w-10 object-contain mr-2" 
+                />
+                <div className="flex flex-wrap gap-1">
+                  {company['SOC 1'] === 'TRUE' && (
+                    <Badge variant="secondary" className="text-xs">SOC 1</Badge>
+                  )}
+                  {company['SOC 2'] === 'TRUE' && (
+                    <Badge variant="secondary" className="text-xs">SOC 2</Badge>
+                  )}
+                  {company['SOC 3'] === 'TRUE' && (
+                    <Badge variant="secondary" className="text-xs">SOC 3</Badge>
+                  )}
+                </div>
               </div>
             </div>
           )}
