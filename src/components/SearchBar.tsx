@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -9,7 +10,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ 
   onSearch, 
-  placeholder = "Search for a company" 
+  placeholder = "Search for a company..." 
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -29,7 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         value={searchTerm}
         onChange={handleChange}
         className="pl-10 pr-4 py-2 w-full bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 focus:border-primary focus:ring-primary transition duration-200"
-        placeholder="Search for a company"
+        placeholder="Search for a company..."
       />
     </div>
   );
