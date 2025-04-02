@@ -1,22 +1,18 @@
-
 import React from 'react';
 import { Shield, Github, Twitter, Mail, ExternalLink, Linkedin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-muted mt-auto py-8 border-t border-gray-200">
+  return <footer className="bg-muted mt-auto py-8 border-t border-gray-200">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand section */}
           <div className="space-y-4">
             <div className="flex items-center">
               <Shield className="h-6 w-6 text-primary mr-2" />
-              <h3 className="text-lg font-semibold">TrustCenterDB</h3>
+              <h3 className="text-lg font-semibold">Trust Center Search</h3>
             </div>
             <p className="text-sm text-muted-foreground">
               The comprehensive database for security and compliance certifications from major companies.
@@ -107,8 +103,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
