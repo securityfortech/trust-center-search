@@ -52,13 +52,13 @@ const Index = () => {
                 totalCompanies={totalCompanies} 
               />
               
-              <main className={`container mx-auto ${isMobile ? 'px-2 flex-1' : 'px-4'} py-4 md:py-6 ${isMobile ? '' : 'flex-grow'}`}>
+              <main className={`container mx-auto ${isMobile ? 'px-2' : 'px-4 pb-12'} py-4 ${isMobile ? 'flex-1' : ''}`}>
                 {isLoading ? (
                   <div className="flex justify-center items-center h-36 md:h-48">
                     <LoadingIndicator />
                   </div>
                 ) : (
-                  <div className="mt-2 md:mt-4">
+                  <div className={`${isMobile ? 'mt-2' : 'mt-6'}`}>
                     <CompanyResults
                       isInitialLoad={isInitialLoad}
                       filteredCompanies={filteredCompanies}

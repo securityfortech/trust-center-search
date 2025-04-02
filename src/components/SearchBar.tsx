@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Search, Mic } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -61,29 +60,37 @@ const SearchBar: React.FC<SearchBarProps> = ({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto flex">
-      <div className="relative flex-grow">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-          <Search className="h-5 w-5 text-gray-400" />
+    <form onSubmit={handleSubmit} className="w-full mx-auto">
+      <div className="relative flex items-center shadow-lg hover:shadow-xl transition-shadow rounded-full overflow-hidden">
+        <div className="w-full flex items-center px-5 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full">
+          <Search className="h-5 w-5 text-gray-400 flex-shrink-0" />
+          <Input
+            type="search"
+            value={searchTerm}
+            onChange={handleChange}
+            className="border-0 bg-transparent ml-3 flex-grow h-10 focus:ring-0 focus:outline-none text-lg"
+            placeholder={placeholder}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />
+          <Mic className="h-5 w-5 text-primary flex-shrink-0 mx-2" />
         </div>
-        <Input
-          type="search"
-          value={searchTerm}
-          onChange={handleChange}
-          className={`pl-12 pr-4 py-3 w-full rounded-l-full h-12 text-lg transition-all duration-200 border-2 ${
-            isFocused ? 'border-primary shadow-sm' : 'border-gray-200 dark:border-gray-700'
-          }`}
-          placeholder={placeholder}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-        />
       </div>
-      <Button 
-        type="submit"
-        className="rounded-r-full h-12 px-6 bg-primary hover:bg-primary/90 transition-all duration-200 font-medium text-base shadow-md hover:shadow-lg"
-      >
-        Search
-      </Button>
+      <div className="flex justify-center mt-6">
+        <Button 
+          type="submit"
+          className="bg-gray-50 hover:bg-gray-100 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 font-medium mx-2 px-6 py-2 rounded-md"
+        >
+          Search 
+        </Button>
+        <Button 
+          type="button"
+          variant="ghost"
+          className="bg-gray-50 hover:bg-gray-100 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 font-medium mx-2 px-6 py-2 rounded-md"
+        >
+          I'm Feeling Lucky
+        </Button>
+      </div>
     </form>
   );
 };
