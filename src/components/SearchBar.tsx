@@ -1,7 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
-import { Search, Mic } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface SearchBarProps {
@@ -33,7 +33,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // We'll still handle submit for accessibility and when users press Enter
     onSearch(searchTerm);
   };
 
@@ -52,7 +51,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
             />
-            <Mic className="h-5 w-5 text-primary flex-shrink-0" />
           </div>
         </div>
       </form>
@@ -73,23 +71,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
-          <Mic className="h-5 w-5 text-primary flex-shrink-0 mx-2" />
         </div>
-      </div>
-      <div className="flex justify-center mt-6">
-        <Button 
-          type="submit"
-          className="bg-gray-50 hover:bg-gray-100 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 font-medium mx-2 px-6 py-2 rounded-md"
-        >
-          Search 
-        </Button>
-        <Button 
-          type="button"
-          variant="ghost"
-          className="bg-gray-50 hover:bg-gray-100 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 font-medium mx-2 px-6 py-2 rounded-md"
-        >
-          I'm Feeling Lucky
-        </Button>
       </div>
     </form>
   );
