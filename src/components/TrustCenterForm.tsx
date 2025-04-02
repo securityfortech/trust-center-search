@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -6,7 +7,7 @@ import { toast } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Shield, LinkIcon } from 'lucide-react';
+import { Shield, LinkIcon, Loader2 } from 'lucide-react';
 
 // Schema for form validation
 const formSchema = z.object({
@@ -17,8 +18,12 @@ const formSchema = z.object({
     message: "Please enter a valid URL."
   })
 });
+
 type FormValues = z.infer<typeof formSchema>;
+
 const TrustCenterForm: React.FC = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -26,29 +31,48 @@ const TrustCenterForm: React.FC = () => {
       trustCenterUrl: ""
     }
   });
+
   const onSubmit = async (data: FormValues) => {
     try {
-      // In a real app, this would be an actual API call
-      // This is a simulation of sending an email
+      setIsSubmitting(true);
+      
+      // Log data for debugging
       console.log("Sending email with data:", data);
 
-      // Simulate API call delay
+      // Create email content
+      const subject = `New Trust Center Request: ${data.company}`;
+      const body = `
+Company: ${data.company}
+Trust Center URL: ${data.trustCenterUrl}
+Date: ${new Date().toLocaleString()}
+      `;
+      
+      // Create mailto link
+      const mailtoLink = `mailto:contact@securityfortech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+
+      // Simulate delay to allow email client to open
       await new Promise(resolve => setTimeout(resolve, 1000));
 
       // Show success message
-      toast.success("Request submitted successfully! We'll review your Trust Center soon.", {
+      toast.success("Email client opened! Please send the email to complete your request.", {
         duration: 5000
       });
 
       // Reset form
       form.reset();
     } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error("Failed to submit your request. Please try again later.", {
+      console.error("Error opening email client:", error);
+      toast.error("Failed to open email client. Please try again or contact us directly.", {
         duration: 5000
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
+
   return <div className="w-full max-w-md mx-auto">
       <div className="flex items-center justify-center mb-4">
         <Shield className="h-5 w-5 text-primary mr-2" />
@@ -83,8 +107,19 @@ const TrustCenterForm: React.FC = () => {
                 <FormMessage />
               </FormItem>} />
           
-          <Button type="submit" className="w-full">
-            Submit Request
+          <Button 
+            type="submit" 
+            className="w-full" 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Preparing Email...
+              </>
+            ) : (
+              "Submit Request"
+            )}
           </Button>
           
           <p className="text-xs text-gray-500 text-center mt-2">
@@ -94,4 +129,5 @@ const TrustCenterForm: React.FC = () => {
       </Form>
     </div>;
 };
+
 export default TrustCenterForm;
