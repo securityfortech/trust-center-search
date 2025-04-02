@@ -8,20 +8,20 @@ interface CompanyCardProps {
   company: {
     Company: string;
     'Trust Center URL': string;
-    'SOC 1'?: string;
-    'SOC 2'?: string;
-    'SOC 3'?: string;
+    'AICPA SOC 1'?: string;
+    'AICPA SOC 2'?: string;
+    'AICPA SOC 3'?: string;
     [key: string]: string | undefined;
   };
 }
 
 const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
   // Check if the company has any SOC certification
-  const hasSOC = company['SOC 1'] === 'TRUE' || 
-                company['SOC 2'] === 'TRUE' || 
-                company['SOC 3'] === 'TRUE';
+  const hasSOC = company['AICPA SOC 1'] === 'TRUE' || 
+                company['AICPA SOC 2'] === 'TRUE' || 
+                company['AICPA SOC 3'] === 'TRUE';
   
-  console.log('Company:', company.Company, 'Has SOC:', hasSOC, 'SOC 1:', company['SOC 1'], 'SOC 2:', company['SOC 2'], 'SOC 3:', company['SOC 3']);
+  console.log('Company:', company.Company, 'Has SOC:', hasSOC, 'SOC 1:', company['AICPA SOC 1'], 'SOC 2:', company['AICPA SOC 2'], 'SOC 3:', company['AICPA SOC 3']);
   
   return (
     <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in">
@@ -55,13 +55,13 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
                   className="h-20 w-20 object-contain mb-2" 
                 />
                 <div className="flex flex-wrap gap-1">
-                  {company['SOC 1'] === 'TRUE' && (
+                  {company['AICPA SOC 1'] === 'TRUE' && (
                     <Badge variant="secondary" className="text-xs">SOC 1</Badge>
                   )}
-                  {company['SOC 2'] === 'TRUE' && (
+                  {company['AICPA SOC 2'] === 'TRUE' && (
                     <Badge variant="secondary" className="text-xs">SOC 2</Badge>
                   )}
-                  {company['SOC 3'] === 'TRUE' && (
+                  {company['AICPA SOC 3'] === 'TRUE' && (
                     <Badge variant="secondary" className="text-xs">SOC 3</Badge>
                   )}
                 </div>
