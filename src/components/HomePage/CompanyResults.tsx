@@ -1,8 +1,9 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import CompanyCard from '@/components/CompanyCard';
 import { CompanyData } from '@/hooks/useCompanyData';
 import { Search } from 'lucide-react';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 interface CompanyResultsProps {
   isInitialLoad: boolean;
@@ -15,6 +16,17 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
   filteredCompanies,
   companies
 }) => {
+  const analytics = useAnalytics();
+  
+  useEffect(() => {
+    if (filteredCompanies.length > 0 && !isInitialLoad) {
+      analytics.capture('viewed_company_results', {
+        count: filteredCompanies.length,
+        total_companies: companies.length
+      });
+    }
+  }, [filteredCompanies.length, isInitialLoad, companies.length, analytics]);
+
   if (isInitialLoad) {
     return (
       <div className="flex flex-col items-center justify-center py-12 animate-fade-in">
