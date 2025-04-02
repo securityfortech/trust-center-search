@@ -5,10 +5,12 @@ import SearchBar from '@/components/SearchBar';
 
 interface HeaderProps {
   onSearch: (searchTerm: string) => void;
+  totalCompanies: number;
 }
 
 const Header: React.FC<HeaderProps> = ({
-  onSearch
+  onSearch,
+  totalCompanies
 }) => {
   return (
     <header className="bg-white dark:bg-gray-900 pt-20 pb-12 flex flex-col items-center justify-center">
@@ -20,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
         <p className="text-center text-gray-700 dark:text-gray-300 max-w-2xl mb-8 text-xl font-medium">
-          Find and explore trust centers from major companies
+          Find and explore Trust Centers from {totalCompanies} leading companies
         </p>
         <div className="w-full max-w-2xl shadow-lg rounded-full">
           <SearchBar onSearch={onSearch} />

@@ -20,11 +20,15 @@ const Index = () => {
           isLoading,
           isInitialLoad,
           handleSearch,
+          totalCompanies,
         }) => {
           console.log("DataProvider rendered with", companies.length, "companies");
           return (
             <>
-              <Header onSearch={handleSearch} />
+              <Header 
+                onSearch={handleSearch} 
+                totalCompanies={totalCompanies} 
+              />
               
               <main className="container mx-auto px-4 py-6 flex-grow">
                 {isLoading ? (

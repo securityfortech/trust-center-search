@@ -10,6 +10,7 @@ interface DataProviderProps {
     isLoading: ReturnType<typeof useCompanyData>['isLoading'];
     isInitialLoad: ReturnType<typeof useCompanyFilter>['isInitialLoad'];
     handleSearch: ReturnType<typeof useCompanyFilter>['handleSearch'];
+    totalCompanies: number;
   }) => React.ReactNode;
   csvUrl: string;
 }
@@ -31,6 +32,7 @@ const DataProvider: React.FC<DataProviderProps> = ({ children, csvUrl }) => {
     isLoading,
     isInitialLoad,
     handleSearch,
+    totalCompanies: companies.length,
   });
 };
 
