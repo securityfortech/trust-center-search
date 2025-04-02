@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import CompanyCard from '@/components/CompanyCard';
 import { CompanyData } from '@/hooks/useCompanyData';
@@ -24,7 +23,7 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
     }
   }, [filteredCompanies.length, isInitialLoad, companies.length, analytics]);
   if (isInitialLoad) {
-    return <div className="flex flex-col items-center justify-center pb-2 animate-fade-in mt-0 py-0">
+    return <div className="flex flex-col items-center justify-center pb-2 animate-fade-in mt-0 py-[12px]">
         <Search className="h-10 w-10 text-gray-400 mb-2" />
         <p className="text-xl font-medium text-gray-800 dark:text-gray-200">Search for a company</p>
         <p className="text-muted-foreground mt-1 text-center max-w-md">
