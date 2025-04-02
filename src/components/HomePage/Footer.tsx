@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Shield, Github, Twitter, Mail, ExternalLink, Linkedin, ArrowRight } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
@@ -126,7 +125,7 @@ const Footer: React.FC = () => {
         <Separator className="my-8" />
         
         <div className="flex flex-col md:flex-row items-center justify-between text-sm">
-          <p className="text-gray-600 dark:text-gray-400">© {currentYear} Trust Center Search - Security & Compliance Certification Search Engine</p>
+          <p className="text-gray-600 dark:text-gray-400">© {currentYear} Trust Center Explorer - Security & Compliance Certification Search Engine</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Privacy</a>
             <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Terms</a>
