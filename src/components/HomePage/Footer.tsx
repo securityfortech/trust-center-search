@@ -1,17 +1,21 @@
+
 import React from 'react';
 import { Shield, Github, Twitter, Mail, Linkedin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { toast } from '@/components/ui/sonner';
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const isMobile = useIsMobile();
+  
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
     toast.success("Link copied to clipboard", {
       duration: 3000
     });
   };
+
   return <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-6 md:py-10 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-3 md:px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
@@ -68,9 +72,10 @@ const Footer: React.FC = () => {
         <Separator className="my-3 md:my-6" />
         
         <div className="flex flex-col md:flex-row items-center justify-center text-xs md:text-sm text-center">
-          <p className="text-gray-600 dark:text-gray-400">© {currentYear} Trust Center Explorer</p>
+          <p className="text-gray-600 dark:text-gray-400">© {currentYear} Trust Center Search</p>
         </div>
       </div>
     </footer>;
 };
+
 export default Footer;
