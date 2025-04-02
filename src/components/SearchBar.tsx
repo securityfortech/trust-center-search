@@ -14,6 +14,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   placeholder = "Search for a company..." 
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
 
   // Effect to trigger search when searchTerm changes with debounce
   useEffect(() => {
@@ -45,13 +46,17 @@ const SearchBar: React.FC<SearchBarProps> = ({
           type="search"
           value={searchTerm}
           onChange={handleChange}
-          className="pl-12 pr-4 py-3 w-full border-gray-200 dark:border-gray-700 focus:border-primary focus:ring-primary rounded-l-full h-12 text-lg"
+          className={`pl-12 pr-4 py-3 w-full rounded-l-full h-12 text-lg transition-all duration-200 border-2 ${
+            isFocused ? 'border-primary shadow-sm' : 'border-gray-200 dark:border-gray-700'
+          }`}
           placeholder={placeholder}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
       </div>
       <Button 
         type="submit"
-        className="rounded-r-full h-12 px-6 bg-primary hover:bg-primary/90"
+        className="rounded-r-full h-12 px-6 bg-primary hover:bg-primary/90 transition-all duration-200 font-medium text-base shadow-md hover:shadow-lg"
       >
         Search
       </Button>
