@@ -6,14 +6,23 @@ import Footer from '@/components/HomePage/Footer';
 import DataProvider from '@/components/HomePage/DataProvider';
 import CompanyResults from '@/components/HomePage/CompanyResults';
 import { toast } from '@/components/ui/sonner';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Google Sheets URL
 const GOOGLE_SHEETS_URL = 'https://docs.google.com/spreadsheets/d/197rabmQLoYSnGv-L27yTn2-lzPfXmI059BQQ_UhVevQ/edit?usp=sharing';
 
 const Index = () => {
-  // Set page title
+  const isMobile = useIsMobile();
+  
+  // Set page title and meta viewport for better mobile experience
   useEffect(() => {
     document.title = "Trust Center Search - Security & Compliance Database";
+    
+    // Ensure the viewport meta tag is set correctly for mobile
+    const viewportMeta = document.querySelector('meta[name="viewport"]');
+    if (viewportMeta) {
+      viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
   }, []);
 
   return (
@@ -43,13 +52,13 @@ const Index = () => {
                 totalCompanies={totalCompanies} 
               />
               
-              <main className="container mx-auto px-4 py-6 flex-grow">
+              <main className={`container mx-auto ${isMobile ? 'px-2' : 'px-4'} py-4 md:py-6 flex-grow`}>
                 {isLoading ? (
-                  <div className="flex justify-center items-center h-48">
+                  <div className="flex justify-center items-center h-36 md:h-48">
                     <LoadingIndicator />
                   </div>
                 ) : (
-                  <div className="mt-4">
+                  <div className="mt-2 md:mt-4">
                     <CompanyResults
                       isInitialLoad={isInitialLoad}
                       filteredCompanies={filteredCompanies}
