@@ -36,8 +36,20 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     posthog.init(POSTHOG_KEY, {
       api_host: POSTHOG_HOST,
       person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users
-      capture_pageview: false // Disable automatic pageview capture, as we capture manually
+      capture_pageview: false, // Disable automatic pageview capture, as we capture manually
+      capture_pageleave: true  // Enable page leave event tracking
     });
+
+    // Set up the page leave event handler
+    const handleBeforeUnload = () => {
+      posthog.capture('$pageleave');
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
   }, []);
 
   return (

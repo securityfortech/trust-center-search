@@ -14,9 +14,14 @@ export const useAnalytics = () => {
     posthog.reset();
   };
 
+  const trackPageLeave = () => {
+    posthog.capture('$pageleave');
+  };
+
   return {
     capture,
     identify,
-    reset
+    reset,
+    trackPageLeave
   };
 };
