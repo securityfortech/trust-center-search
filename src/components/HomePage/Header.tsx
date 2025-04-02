@@ -15,9 +15,7 @@ const Header: React.FC<HeaderProps> = ({
             <h1 className="text-4xl sm:text-5xl font-bold text-trust-dark dark:text-white">Trust Center DB</h1>
           </div>
         </div>
-        <p className="text-center text-muted-foreground max-w-2xl mb-8 text-lg">
-          Find and explore trust center details from major companies
-        </p>
+        <p className="text-center text-muted-foreground max-w-2xl mb-8 text-lg">Find and explore trust center from major companies</p>
         <div className="w-full max-w-2xl shadow-lg rounded-full">
           <SearchBar onSearch={onSearch} />
         </div>
