@@ -1,23 +1,18 @@
-
 import React from 'react';
 import { Shield, Github, Twitter, Mail, Linkedin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { toast } from '@/components/ui/sonner';
-
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const isMobile = useIsMobile();
-  
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
     toast.success("Link copied to clipboard", {
       duration: 3000
     });
   };
-  
-  return (
-    <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-6 md:py-10 border-t border-gray-200 dark:border-gray-800">
+  return <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-6 md:py-10 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-3 md:px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
           {/* Block 1: Brand and description */}
@@ -26,9 +21,7 @@ const Footer: React.FC = () => {
               <Shield className="h-5 w-5 md:h-6 md:w-6 text-primary mr-2" />
               <h3 className="text-base md:text-lg font-semibold">Trust Center Search</h3>
             </div>
-            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-md px-2 md:px-0">
-              The comprehensive database for security and compliance certifications from major companies.
-            </p>
+            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-md px-2 md:px-0">A search engine for security and compliance certifications from leading companies.</p>
             
             {/* Social media icons */}
             <div className="flex space-x-4 pt-1 justify-center md:justify-start">
@@ -78,8 +71,6 @@ const Footer: React.FC = () => {
           <p className="text-gray-600 dark:text-gray-400">© {currentYear} Trust Center Explorer</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
