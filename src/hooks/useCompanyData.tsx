@@ -19,33 +19,24 @@ export const useCompanyData = (dataUrl: string) => {
       try {
         setIsLoading(true);
         
-        // Check if the URL is a Google Sheets URL
-        if (dataUrl.includes('docs.google.com/spreadsheets')) {
-          // Extract the spreadsheet ID
-          const matches = dataUrl.match(/\/d\/(.*?)\/|\/d\/(.*?)$/);
-          if (!matches) {
-            throw new Error('Invalid Google Sheets URL');
-          }
-          
-          const sheetId = matches[1] || matches[2];
-          // Convert to CSV export URL
-          const csvExportUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
-          
-          console.log('Fetching Google Sheet as CSV:', csvExportUrl);
-          const response = await fetch(csvExportUrl);
-          
-          if (!response.ok) {
-            throw new Error(`Failed to fetch Google Sheet: ${response.status}`);
-          }
-          
-          const csvText = await response.text();
-          parseCSVData(csvText);
-        } else {
-          // Handle regular CSV URL
-          const response = await fetch(dataUrl);
-          const csvText = await response.text();
-          parseCSVData(csvText);
+        // Extract Google Sheets ID and convert to CSV export URL
+        const matches = dataUrl.match(/\/d\/(.*?)\/|\/d\/(.*?)$/);
+        if (!matches) {
+          throw new Error('Invalid Google Sheets URL');
         }
+        
+        const sheetId = matches[1] || matches[2];
+        const csvExportUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
+        
+        console.log('Fetching Google Sheet as CSV:', csvExportUrl);
+        const response = await fetch(csvExportUrl);
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch data: ${response.status}`);
+        }
+        
+        const csvText = await response.text();
+        parseCSVData(csvText);
       } catch (error) {
         console.error('Error fetching data:', error);
         toast.error('Could not fetch data. Please try again later.');
