@@ -1,19 +1,15 @@
-
 import React from 'react';
 import { Shield } from 'lucide-react';
 import SearchBar from '@/components/SearchBar';
-
 interface HeaderProps {
   onSearch: (searchTerm: string) => void;
   totalCompanies: number;
 }
-
 const Header: React.FC<HeaderProps> = ({
   onSearch,
   totalCompanies
 }) => {
-  return (
-    <header className="bg-white dark:bg-gray-900 pt-20 pb-12 flex flex-col items-center justify-center">
+  return <header className="bg-white dark:bg-gray-900 pt-20 pb-12 flex flex-col items-center justify-center">
       <div className="container mx-auto px-4 flex flex-col items-center">
         <div className="mb-6">
           <div className="flex items-center justify-center">
@@ -31,13 +27,9 @@ const Header: React.FC<HeaderProps> = ({
           <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
             Discover Security & Compliance Certifications
           </h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            Explore ISO, SOC, GDPR, and other compliance information from companies like Google, Microsoft, Adobe, and more.
-          </p>
+          <p className="text-gray-600 dark:text-gray-400">Explore security and compliance information from leading companies like Amazon, Google, Microsoft, and more.</p>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
