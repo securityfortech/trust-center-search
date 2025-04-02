@@ -1,13 +1,11 @@
-
 import React from 'react';
 import { Shield, Github, Twitter, Mail, Linkedin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-12 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Brand section */}
           <div className="space-y-4">
             <div className="flex items-center">
@@ -19,8 +17,9 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Links section */}
+          {/* Company section - replacing the Newsletter section */}
           <div className="space-y-4">
+            <h3 className="text-md font-semibold">SecurityforTech</h3>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">About Us</a>
