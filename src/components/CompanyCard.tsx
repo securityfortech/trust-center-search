@@ -21,6 +21,8 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
                 company['SOC 2'] === 'TRUE' || 
                 company['SOC 3'] === 'TRUE';
   
+  console.log('Company:', company.Company, 'Has SOC:', hasSOC);
+  
   return (
     <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in">
       <CardHeader className="pb-2">
@@ -46,11 +48,11 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
           
           {hasSOC && (
             <div className="mt-3">
-              <div className="flex items-center">
+              <div className="flex flex-col items-start">
                 <img 
                   src="/soc-logo.jpg" 
                   alt="SOC Certification" 
-                  className="h-10 w-10 object-contain mr-2" 
+                  className="h-16 w-16 object-contain mb-2" 
                 />
                 <div className="flex flex-wrap gap-1">
                   {company['SOC 1'] === 'TRUE' && (
