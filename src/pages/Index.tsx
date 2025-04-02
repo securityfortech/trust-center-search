@@ -9,9 +9,6 @@ import CompanyResults from '@/components/HomePage/CompanyResults';
 // Google Sheets URL
 const GOOGLE_SHEETS_URL = 'https://docs.google.com/spreadsheets/d/197rabmQLoYSnGv-L27yTn2-lzPfXmI059BQQ_UhVevQ/edit?usp=sharing';
 
-// Backup CSV URL in case Google Sheets doesn't work
-const BACKUP_CSV_URL = 'https://raw.githubusercontent.com/securityfortech/trust-center-db/refs/heads/main/Trust_Center_Certification_CSV.csv?token=GHSAT0AAAAAAC666XH55I25T2CXJ2TPRMLUZ7MUJFQ';
-
 const Index = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
