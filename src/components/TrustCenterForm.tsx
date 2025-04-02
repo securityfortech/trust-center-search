@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Shield } from 'lucide-react';
+import { Shield, LinkIcon } from 'lucide-react';
 
 // Schema for form validation
 const formSchema = z.object({
@@ -64,8 +64,8 @@ const TrustCenterForm: React.FC = () => {
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="flex items-center justify-center mb-4">
-        <Shield className="h-6 w-6 text-primary mr-2" />
-        <h2 className="text-xl font-semibold">Add Your Trust Center</h2>
+        <Shield className="h-5 w-5 text-primary mr-2" />
+        <h2 className="text-lg font-semibold">Submit Your Information</h2>
       </div>
       
       <Form {...form}>
@@ -77,7 +77,14 @@ const TrustCenterForm: React.FC = () => {
               <FormItem>
                 <FormLabel>Company Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="e.g., Acme Corporation" {...field} />
+                  <div className="relative">
+                    <Input 
+                      placeholder="e.g., Acme Corporation" 
+                      className="pl-9" 
+                      {...field} 
+                    />
+                    <Shield className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -91,7 +98,14 @@ const TrustCenterForm: React.FC = () => {
               <FormItem>
                 <FormLabel>Trust Center URL</FormLabel>
                 <FormControl>
-                  <Input placeholder="e.g., https://trust.acme.com" {...field} />
+                  <div className="relative">
+                    <Input 
+                      placeholder="e.g., https://trust.acme.com" 
+                      className="pl-9" 
+                      {...field} 
+                    />
+                    <LinkIcon className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
