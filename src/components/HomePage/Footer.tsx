@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, Github, Twitter, Mail, Linkedin, Plus } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
@@ -44,14 +43,14 @@ const Footer: React.FC = () => {
               </a>
             </div>
             
-            <div className="flex space-x-4 items-center">
+            <div className="flex flex-col space-y-2 items-center md:items-start">
+              <Link to="/add-trust-center" className="text-primary hover:text-primary/80 text-xs md:text-sm font-medium transition-colors flex items-center">
+                <Plus className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                Add your Trust Center
+              </Link>
               <button onClick={handleCopyLink} className="text-primary hover:text-primary/80 text-xs md:text-sm font-medium transition-colors">
                 Share this tool
               </button>
-              <Link to="/add-trust-center" className="text-primary hover:text-primary/80 text-xs md:text-sm font-medium transition-colors flex items-center">
-                <Plus className="h-3 w-3 md:h-4 md:w-4 mr-1" />
-                Add Trust Center
-              </Link>
             </div>
           </div>
           
