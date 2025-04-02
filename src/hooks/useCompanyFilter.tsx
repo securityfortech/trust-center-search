@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Fuse from 'fuse.js';
 import { CompanyData } from './useCompanyData';
 
@@ -37,9 +37,13 @@ export const useCompanyFilter = (companies: CompanyData[]) => {
     }
   }, [searchTerm, companies, fuse, isInitialLoad]);
 
-  const handleSearch = (term: string) => {
+  // Memoize handleSearch to avoid unnecessary rerenders
+  const handleSearch = useCallback((term: string) => {
     setSearchTerm(term);
-  };
+    if (term.trim() !== '') {
+      setIsInitialLoad(false);
+    }
+  }, []);
 
   return {
     filteredCompanies,

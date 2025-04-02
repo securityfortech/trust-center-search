@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -15,6 +15,15 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Effect to trigger search when searchTerm changes with debounce
+  useEffect(() => {
+    const debounceTimer = setTimeout(() => {
+      onSearch(searchTerm);
+    }, 300); // 300ms debounce delay to avoid too many searches
+
+    return () => clearTimeout(debounceTimer);
+  }, [searchTerm, onSearch]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);
@@ -22,6 +31,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // We'll still handle submit for accessibility and when users press Enter
     onSearch(searchTerm);
   };
 
