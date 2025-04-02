@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -50,7 +49,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
             <div className="mt-3">
               <div className="flex flex-col items-start">
                 <img 
-                  src="/lovable-uploads/22d4dc84-5159-4ac0-99ce-bdc36cc93479.png" 
+                  src="/lovable-uploads/b55814be-22ba-4f23-b10e-50b7bcd8e14e.png" 
                   alt="AICPA SOC Certification" 
                   className="h-20 w-20 object-contain mb-2" 
                 />
@@ -87,4 +86,3 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
 };
 
 export default CompanyCard;
-
