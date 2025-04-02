@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -61,11 +60,6 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
         
         {hasSOC && (
           <div className="mt-3 flex flex-col items-start">
-            <img 
-              src="/img/soc-logo.jpg" 
-              alt="AICPA SOC Certification" 
-              className="h-12 w-12 object-contain mb-2" 
-            />
             <div className="flex flex-wrap gap-1">
               {company['AICPA SOC 1'] === 'TRUE' && (
                 <Badge variant="secondary" className="text-xs">SOC 1</Badge>
