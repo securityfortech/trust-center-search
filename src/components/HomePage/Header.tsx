@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({
           <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
             Discover Security & Compliance Certifications
           </h2>
-          <p className="text-gray-600 dark:text-gray-400">Explore ISO, SOC and other compliance information from companies like Amazon, Google, OpenAI, Microsoft, and more.</p>
+          <p className="text-gray-600 dark:text-gray-400">Explore ISO, SOC, and other compliance information from companies like Amazon, Google, OpenAI, Microsoft, and more.</p>
         </div>
       </div>
     </header>;
