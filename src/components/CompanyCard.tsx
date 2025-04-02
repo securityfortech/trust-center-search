@@ -2,16 +2,25 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 interface CompanyCardProps {
   company: {
     Company: string;
     'Trust Center URL': string;
-    [key: string]: string;
+    'SOC 1'?: string;
+    'SOC 2'?: string;
+    'SOC 3'?: string;
+    [key: string]: string | undefined;
   };
 }
 
 const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
+  // Check if the company has any SOC certification
+  const hasSOC = company['SOC 1'] === 'TRUE' || 
+                company['SOC 2'] === 'TRUE' || 
+                company['SOC 3'] === 'TRUE';
+  
   return (
     <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in">
       <CardHeader className="pb-2">
@@ -30,9 +39,32 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
         </CardTitle>
       </CardHeader>
       <CardContent className="pb-2">
-        <p className="text-sm text-muted-foreground">
-          View this company's trust center for more information.
-        </p>
+        <div className="flex flex-col space-y-2">
+          <p className="text-sm text-muted-foreground">
+            View this company's trust center for more information.
+          </p>
+          
+          {hasSOC && (
+            <div className="flex items-center gap-2 mt-2">
+              <img 
+                src="/soc-logo.jpg" 
+                alt="SOC Certification" 
+                className="h-8 w-8 object-contain" 
+              />
+              <div className="flex flex-wrap gap-1">
+                {company['SOC 1'] === 'TRUE' && (
+                  <Badge variant="secondary" className="text-xs">SOC 1</Badge>
+                )}
+                {company['SOC 2'] === 'TRUE' && (
+                  <Badge variant="secondary" className="text-xs">SOC 2</Badge>
+                )}
+                {company['SOC 3'] === 'TRUE' && (
+                  <Badge variant="secondary" className="text-xs">SOC 3</Badge>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
       </CardContent>
       <CardFooter className="text-xs text-muted-foreground pt-0">
         {company['Trust Center URL'] && (

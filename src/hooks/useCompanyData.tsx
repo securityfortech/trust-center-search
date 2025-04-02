@@ -6,7 +6,10 @@ import { toast } from '@/components/ui/sonner';
 export interface CompanyData {
   Company: string;
   'Trust Center URL': string;
-  [key: string]: string;
+  'SOC 1'?: string;
+  'SOC 2'?: string;
+  'SOC 3'?: string;
+  [key: string]: string | undefined;
 }
 
 export const useCompanyData = (dataUrl: string) => {
