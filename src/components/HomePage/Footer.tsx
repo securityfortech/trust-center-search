@@ -11,35 +11,19 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-6 md:py-12 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Combined brand section with links */}
-          <div className="space-y-4 md:col-span-3 text-center flex flex-col items-center">
-            <div className="flex items-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Block 1: Brand and description */}
+          <div className="space-y-4 text-center md:text-left flex flex-col items-center md:items-start">
+            <div className="flex items-center justify-center md:justify-start">
               <Shield className="h-5 w-5 md:h-6 md:w-6 text-primary mr-2" />
               <h3 className="text-base md:text-lg font-semibold">Trust Center Search</h3>
             </div>
-            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-md px-2">
+            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-md px-2 md:px-0">
               The comprehensive database for security and compliance certifications from major companies.
             </p>
             
-            {/* Company links - horizontal on mobile */}
-            <div className={isMobile ? "flex flex-wrap justify-center gap-4 pt-2" : "space-y-3 pt-2"}>
-              <a href="#" className="text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">
-                About Us
-              </a>
-              <a href="#" className="text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">
-                Terms of Service
-              </a>
-              <a href="#" className="text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">
-                Contact
-              </a>
-            </div>
-            
             {/* Social media icons */}
-            <div className="flex space-x-4 pt-2 justify-center">
+            <div className="flex space-x-4 pt-2 justify-center md:justify-start">
               <a href="#" aria-label="GitHub" className="hover:scale-105 transition-transform">
                 <Github className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
               </a>
@@ -51,6 +35,26 @@ const Footer: React.FC = () => {
               </a>
               <a href="#" aria-label="Email" className="hover:scale-105 transition-transform">
                 <Mail className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" />
+              </a>
+            </div>
+          </div>
+          
+          {/* Block 2: Links and navigation */}
+          <div className="space-y-4 text-center md:text-right">
+            <h3 className="text-base md:text-lg font-semibold">Links</h3>
+            {/* Company links - horizontal on mobile, vertical on desktop */}
+            <div className={isMobile ? "flex flex-wrap justify-center gap-4 pt-2" : "space-y-3 pt-2 flex flex-col items-end"}>
+              <a href="#" className="text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">
+                About Us
+              </a>
+              <a href="#" className="text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">
+                Terms of Service
+              </a>
+              <a href="#" className="text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">
+                Contact
               </a>
             </div>
           </div>
