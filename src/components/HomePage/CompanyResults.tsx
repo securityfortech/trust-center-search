@@ -7,16 +7,12 @@ interface CompanyResultsProps {
   isInitialLoad: boolean;
   filteredCompanies: CompanyData[];
   companies: CompanyData[];
-  certifications: string[];
-  selectedCertifications: string[];
 }
 
 const CompanyResults: React.FC<CompanyResultsProps> = ({
   isInitialLoad,
   filteredCompanies,
   companies,
-  certifications,
-  selectedCertifications,
 }) => {
   if (isInitialLoad) {
     return (
@@ -48,8 +44,6 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
             <CompanyCard
               key={`${company.Company}-${index}`}
               company={company}
-              certifications={certifications}
-              selectedCertifications={selectedCertifications}
             />
           ))}
         </div>
