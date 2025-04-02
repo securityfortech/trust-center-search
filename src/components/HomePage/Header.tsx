@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
             </h1>
           </div>
           <p className="text-center text-muted-foreground max-w-2xl">
-            Find and browse trust centers from major companies
+            Search for a company
           </p>
           <div className="w-full max-w-3xl mt-4">
             <SearchBar onSearch={onSearch} />
