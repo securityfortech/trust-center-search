@@ -50,7 +50,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
             <div className="mt-3">
               <div className="flex flex-col items-start">
                 <img 
-                  src="/lovable-uploads/3e8e4880-8a74-45c0-99e9-fbf69b79da60.png" 
+                  src="/img/soc-logo.jpg" 
                   alt="AICPA SOC Certification" 
                   className="h-20 w-20 object-contain mb-2" 
                 />
