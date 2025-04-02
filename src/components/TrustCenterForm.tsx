@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -6,7 +7,7 @@ import { toast } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Shield, LinkIcon } from 'lucide-react';
+import { Shield, LinkIcon, Loader2 } from 'lucide-react';
 
 // Schema for form validation
 const formSchema = z.object({
@@ -17,8 +18,12 @@ const formSchema = z.object({
     message: "Please enter a valid URL."
   })
 });
+
 type FormValues = z.infer<typeof formSchema>;
+
 const TrustCenterForm: React.FC = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -26,14 +31,16 @@ const TrustCenterForm: React.FC = () => {
       trustCenterUrl: ""
     }
   });
+
   const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+    
     try {
       // In a real app, this would be an actual API call
-      // This is a simulation of sending an email
-      console.log("Sending email with data:", data);
+      console.log("Sending request with data:", data);
 
       // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
       // Show success message
       toast.success("Request submitted successfully! We'll review your Trust Center soon.", {
@@ -47,9 +54,13 @@ const TrustCenterForm: React.FC = () => {
       toast.error("Failed to submit your request. Please try again later.", {
         duration: 5000
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
-  return <div className="w-full max-w-md mx-auto">
+
+  return (
+    <div className="w-full max-w-md mx-auto">
       <div className="flex items-center justify-center mb-4">
         <Shield className="h-5 w-5 text-primary mr-2" />
         <h2 className="text-lg font-semibold">Add your Trust Center</h2>
@@ -57,9 +68,11 @@ const TrustCenterForm: React.FC = () => {
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <FormField control={form.control} name="company" render={({
-          field
-        }) => <FormItem>
+          <FormField 
+            control={form.control} 
+            name="company" 
+            render={({ field }) => (
+              <FormItem>
                 <FormLabel>Company Name</FormLabel>
                 <FormControl>
                   <div className="relative">
@@ -68,11 +81,15 @@ const TrustCenterForm: React.FC = () => {
                   </div>
                 </FormControl>
                 <FormMessage />
-              </FormItem>} />
+              </FormItem>
+            )} 
+          />
           
-          <FormField control={form.control} name="trustCenterUrl" render={({
-          field
-        }) => <FormItem>
+          <FormField 
+            control={form.control} 
+            name="trustCenterUrl" 
+            render={({ field }) => (
+              <FormItem>
                 <FormLabel>Trust Center URL</FormLabel>
                 <FormControl>
                   <div className="relative">
@@ -81,10 +98,23 @@ const TrustCenterForm: React.FC = () => {
                   </div>
                 </FormControl>
                 <FormMessage />
-              </FormItem>} />
+              </FormItem>
+            )} 
+          />
           
-          <Button type="submit" className="w-full">
-            Submit Request
+          <Button 
+            type="submit" 
+            className="w-full" 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Submitting...
+              </>
+            ) : (
+              "Submit Request"
+            )}
           </Button>
           
           <p className="text-xs text-gray-500 text-center mt-2">
@@ -92,6 +122,8 @@ const TrustCenterForm: React.FC = () => {
           </p>
         </form>
       </Form>
-    </div>;
+    </div>
+  );
 };
+
 export default TrustCenterForm;
