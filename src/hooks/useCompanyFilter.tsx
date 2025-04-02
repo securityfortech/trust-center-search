@@ -13,11 +13,11 @@ export const useCompanyFilter = (
   const [fuse, setFuse] = useState<Fuse<CompanyData> | null>(null);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-  // Initialize and update Fuse instance when companies or certifications change
+  // Initialize Fuse for searching primarily in company names
   useEffect(() => {
     if (companies.length > 0 && certifications.length > 0) {
       setFuse(new Fuse(companies, {
-        keys: ['Company', ...certifications],
+        keys: ['Company'],  // Focus search on company names
         threshold: 0.3,
         ignoreLocation: true,
       }));

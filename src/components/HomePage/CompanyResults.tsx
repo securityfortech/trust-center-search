@@ -1,7 +1,7 @@
 
 import React from 'react';
 import CompanyCard from '@/components/CompanyCard';
-import { CompanyData } from './DataProvider';
+import { CompanyData } from '@/hooks/useCompanyData';
 
 interface CompanyResultsProps {
   isInitialLoad: boolean;
@@ -21,9 +21,9 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
   if (isInitialLoad) {
     return (
       <div className="text-center py-12">
-        <p className="text-lg font-medium">Start searching or select certifications to discover companies</p>
+        <p className="text-lg font-medium">Search for companies</p>
         <p className="text-muted-foreground mt-2">
-          Use the search bar or certification filters to find trust centers
+          Type a company name to start searching
         </p>
       </div>
     );
@@ -37,9 +37,9 @@ const CompanyResults: React.FC<CompanyResultsProps> = ({
       
       {filteredCompanies.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-lg font-medium">No matches found</p>
+          <p className="text-lg font-medium">No companies found</p>
           <p className="text-muted-foreground mt-2">
-            Try adjusting your search or filters
+            Try a different search term
           </p>
         </div>
       ) : (
