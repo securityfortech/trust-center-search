@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TrustCenterForm from '@/components/TrustCenterForm';
 import Footer from '@/components/HomePage/Footer';
-import { Button } from '@/components/ui/button';
 import { ArrowLeft, Shield } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Separator } from '@/components/ui/separator';
@@ -35,11 +34,11 @@ const AddTrustCenter: React.FC = () => {
       
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
-          <div className="mb-6 text-center">
+          <div className="mb-8 text-center">
             <h1 className="text-2xl md:text-3xl font-bold mb-3">Add Your Trust Center</h1>
             <Separator className="w-20 mx-auto mb-4" />
             <p className="text-gray-600 dark:text-gray-400 max-w-md mx-auto text-sm md:text-base">
-              Submit your company's Trust Center to be included in our database. Our team will review and add it to our search engine.
+              Get your company's Trust Center listed in our search engine by following the simple submission process below.
             </p>
           </div>
           
