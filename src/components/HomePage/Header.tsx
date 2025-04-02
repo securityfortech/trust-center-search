@@ -23,6 +23,27 @@ const Header: React.FC<HeaderProps> = ({
     });
   };
 
+  if (isMobile) {
+    return (
+      <header className="bg-background dark:bg-gray-900 pt-6 pb-4 flex flex-col items-center justify-center animate-fade-in">
+        <div className="container mx-auto px-4 flex flex-col items-center">
+          <div className="mb-8 mt-4">
+            <div className="flex items-center justify-center">
+              <Shield className="h-6 w-6 text-primary mr-2" />
+              <h1 className="text-3xl font-bold text-trust-dark dark:text-white">Trust Center</h1>
+            </div>
+          </div>
+          
+          <div className="w-full max-w-full px-4 mb-8">
+            <SearchBar onSearch={onSearch} />
+          </div>
+          
+          {/* No additional text on mobile - Google-like */}
+        </div>
+      </header>
+    );
+  }
+
   return (
     <header className="bg-white dark:bg-gray-900 pt-8 md:pt-16 pb-6 md:pb-10 flex flex-col items-center justify-center animate-fade-in">
       <div className="container mx-auto px-4 flex flex-col items-center">

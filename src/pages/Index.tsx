@@ -26,7 +26,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className={`min-h-screen bg-background flex flex-col ${isMobile ? 'justify-between' : ''}`}>
       <DataProvider csvUrl={GOOGLE_SHEETS_URL}>
         {({
           companies,
@@ -52,7 +52,7 @@ const Index = () => {
                 totalCompanies={totalCompanies} 
               />
               
-              <main className={`container mx-auto ${isMobile ? 'px-2' : 'px-4'} py-4 md:py-6 flex-grow`}>
+              <main className={`container mx-auto ${isMobile ? 'px-2 flex-1' : 'px-4'} py-4 md:py-6 ${isMobile ? '' : 'flex-grow'}`}>
                 {isLoading ? (
                   <div className="flex justify-center items-center h-36 md:h-48">
                     <LoadingIndicator />
@@ -68,7 +68,19 @@ const Index = () => {
                 )}
               </main>
               
-              <Footer />
+              {isMobile ? (
+                <footer className="w-full bg-gray-100 dark:bg-gray-800 py-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="container mx-auto px-4">
+                    <div className="flex justify-center space-x-6 text-sm text-gray-600 dark:text-gray-400">
+                      <a href="#" className="hover:underline">Settings</a>
+                      <a href="#" className="hover:underline">Privacy</a>
+                      <a href="#" className="hover:underline">Terms</a>
+                    </div>
+                  </div>
+                </footer>
+              ) : (
+                <Footer />
+              )}
             </>
           );
         }}
