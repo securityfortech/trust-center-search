@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import Fuse from 'fuse.js';
@@ -25,8 +24,8 @@ const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [fuse, setFuse] = useState<Fuse<CompanyData> | null>(null);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-  // Fetch and parse CSV data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,7 +41,6 @@ const Index = () => {
             setCompanies(data);
             setFilteredCompanies(data);
             
-            // Extract certification column names
             if (data.length > 0) {
               const certNames = Object.keys(data[0])
                 .filter(key => 
@@ -53,7 +51,6 @@ const Index = () => {
               setCertifications(certNames);
             }
             
-            // Initialize Fuse.js for search
             setFuse(new Fuse(data, {
               keys: ['Company', ...certifications],
               threshold: 0.3,
@@ -78,7 +75,6 @@ const Index = () => {
     fetchData();
   }, []);
 
-  // Update Fuse instance when certifications change
   useEffect(() => {
     if (companies.length > 0 && certifications.length > 0) {
       setFuse(new Fuse(companies, {
@@ -89,17 +85,14 @@ const Index = () => {
     }
   }, [companies, certifications]);
 
-  // Handle search and filter changes
   useEffect(() => {
     let results = [...companies];
     
-    // Apply search if there's a search term and Fuse is initialized
     if (searchTerm && fuse) {
       const searchResults = fuse.search(searchTerm);
       results = searchResults.map(result => result.item);
     }
     
-    // Apply certification filters if there are any selected
     if (selectedCertifications.length > 0) {
       results = results.filter(company => 
         selectedCertifications.every(cert => 
@@ -112,6 +105,10 @@ const Index = () => {
     }
     
     setFilteredCompanies(results);
+    
+    if (isInitialLoad && (searchTerm || selectedCertifications.length > 0)) {
+      setIsInitialLoad(false);
+    }
   }, [searchTerm, selectedCertifications, companies, fuse]);
 
   const handleSearch = (term: string) => {
@@ -161,28 +158,39 @@ const Index = () => {
             )}
             
             <div className="mt-6">
-              <p className="text-sm text-muted-foreground mb-4">
-                Showing {filteredCompanies.length} of {companies.length} companies
-              </p>
-              
-              {filteredCompanies.length === 0 ? (
+              {isInitialLoad ? (
                 <div className="text-center py-12">
-                  <p className="text-lg font-medium">No matches found</p>
+                  <p className="text-lg font-medium">Start searching or select certifications to discover companies</p>
                   <p className="text-muted-foreground mt-2">
-                    Try adjusting your search or filters
+                    Use the search bar or certification filters to find trust centers
                   </p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {filteredCompanies.map((company, index) => (
-                    <CompanyCard
-                      key={`${company.Company}-${index}`}
-                      company={company}
-                      certifications={certifications}
-                      selectedCertifications={selectedCertifications}
-                    />
-                  ))}
-                </div>
+                <>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Showing {filteredCompanies.length} of {companies.length} companies
+                  </p>
+                  
+                  {filteredCompanies.length === 0 ? (
+                    <div className="text-center py-12">
+                      <p className="text-lg font-medium">No matches found</p>
+                      <p className="text-muted-foreground mt-2">
+                        Try adjusting your search or filters
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {filteredCompanies.map((company, index) => (
+                        <CompanyCard
+                          key={`${company.Company}-${index}`}
+                          company={company}
+                          certifications={certifications}
+                          selectedCertifications={selectedCertifications}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </>
