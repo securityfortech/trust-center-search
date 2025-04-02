@@ -7,7 +7,7 @@ import { toast } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Shield, LinkIcon, Loader2 } from 'lucide-react';
+import { Shield, LinkIcon, Loader2, CheckCircle } from 'lucide-react';
 
 // Schema for form validation
 const formSchema = z.object({
@@ -73,7 +73,8 @@ Date: ${new Date().toLocaleString()}
     }
   };
 
-  return <div className="w-full max-w-md mx-auto">
+  return (
+    <div className="w-full max-w-md mx-auto">
       <div className="flex items-center justify-center mb-4">
         <Shield className="h-5 w-5 text-primary mr-2" />
         <h2 className="text-lg font-semibold">Add your Trust Center</h2>
@@ -81,9 +82,11 @@ Date: ${new Date().toLocaleString()}
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <FormField control={form.control} name="company" render={({
-          field
-        }) => <FormItem>
+          <FormField 
+            control={form.control} 
+            name="company" 
+            render={({ field }) => (
+              <FormItem>
                 <FormLabel>Company Name</FormLabel>
                 <FormControl>
                   <div className="relative">
@@ -92,11 +95,15 @@ Date: ${new Date().toLocaleString()}
                   </div>
                 </FormControl>
                 <FormMessage />
-              </FormItem>} />
+              </FormItem>
+            )} 
+          />
           
-          <FormField control={form.control} name="trustCenterUrl" render={({
-          field
-        }) => <FormItem>
+          <FormField 
+            control={form.control} 
+            name="trustCenterUrl" 
+            render={({ field }) => (
+              <FormItem>
                 <FormLabel>Trust Center URL</FormLabel>
                 <FormControl>
                   <div className="relative">
@@ -105,7 +112,9 @@ Date: ${new Date().toLocaleString()}
                   </div>
                 </FormControl>
                 <FormMessage />
-              </FormItem>} />
+              </FormItem>
+            )} 
+          />
           
           <Button 
             type="submit" 
@@ -122,12 +131,31 @@ Date: ${new Date().toLocaleString()}
             )}
           </Button>
           
-          <p className="text-xs text-gray-500 text-center mt-2">
-            Your request will be sent to our team for review. We'll add your Trust Center to our database after verification.
-          </p>
+          <div className="mt-6 space-y-3 border-t border-gray-100 pt-4">
+            <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">Submission Process:</h3>
+            <ol className="space-y-2">
+              <li className="text-xs text-gray-600 dark:text-gray-400 flex items-start">
+                <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                <span>Send an email to contact@securityfortech.com with your company name and trust center URL</span>
+              </li>
+              <li className="text-xs text-gray-600 dark:text-gray-400 flex items-start">
+                <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                <span>Our team will review your submission</span>
+              </li>
+              <li className="text-xs text-gray-600 dark:text-gray-400 flex items-start">
+                <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                <span>We'll verify the Trust Center URL and company information</span>
+              </li>
+              <li className="text-xs text-gray-600 dark:text-gray-400 flex items-start">
+                <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                <span>Once approved, your Trust Center will appear in our search results</span>
+              </li>
+            </ol>
+          </div>
         </form>
       </Form>
-    </div>;
+    </div>
+  );
 };
 
 export default TrustCenterForm;

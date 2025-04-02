@@ -44,15 +44,6 @@ const AddTrustCenter: React.FC = () => {
           </div>
           
           <TrustCenterForm />
-          
-          <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
-            <h3 className="text-lg font-medium mb-2">What happens next?</h3>
-            <ol className="list-decimal list-inside space-y-2 text-gray-700 dark:text-gray-300 text-sm md:text-base">
-              <li>Our team will review your submission</li>
-              <li>We'll verify the Trust Center URL and company information</li>
-              <li>Once approved, your Trust Center will appear in our search results</li>
-            </ol>
-          </div>
         </div>
       </main>
       
