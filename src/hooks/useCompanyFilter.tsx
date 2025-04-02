@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useCallback } from 'react';
 import Fuse from 'fuse.js';
 import { CompanyData } from './useCompanyData';
@@ -24,28 +23,31 @@ export const useCompanyFilter = (companies: CompanyData[]) => {
 
   // Apply filters when search term changes
   useEffect(() => {
-    let results = [...companies];
-    
-    if (searchTerm && fuse) {
-      const searchResults = fuse.search(searchTerm);
-      results = searchResults.map(result => result.item);
-      console.log('Search results for:', searchTerm, 'found', results.length, 'companies');
+    // Always show initial state if search is empty
+    if (!searchTerm.trim()) {
+      setIsInitialLoad(true);
+      setFilteredCompanies(companies);
+      return;
     }
     
-    setFilteredCompanies(results);
-    
-    if (isInitialLoad && searchTerm) {
+    // Only search if we have at least 2 characters
+    if (searchTerm.trim().length >= 2 && fuse) {
       setIsInitialLoad(false);
+      const searchResults = fuse.search(searchTerm);
+      const results = searchResults.map(result => result.item);
+      console.log('Search results for:', searchTerm, 'found', results.length, 'companies');
+      setFilteredCompanies(results);
+    } else {
+      // If less than 2 characters but not empty, keep initial state
+      setIsInitialLoad(true);
+      setFilteredCompanies(companies);
     }
-  }, [searchTerm, companies, fuse, isInitialLoad]);
+  }, [searchTerm, companies, fuse]);
 
   // Memoize handleSearch to avoid unnecessary rerenders
   const handleSearch = useCallback((term: string) => {
     console.log('Search term changed to:', term);
     setSearchTerm(term);
-    if (term.trim() !== '') {
-      setIsInitialLoad(false);
-    }
   }, []);
 
   return {
