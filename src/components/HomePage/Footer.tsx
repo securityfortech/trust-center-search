@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { Shield, Github, Twitter, Mail, ExternalLink, Linkedin, ArrowRight } from 'lucide-react';
+import { Shield, Github, Twitter, Mail, Linkedin, ArrowRight } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,7 +25,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-50 dark:bg-gray-900 mt-auto py-12 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Brand section */}
           <div className="space-y-4">
             <div className="flex items-center">
@@ -34,50 +35,6 @@ const Footer: React.FC = () => {
             <p className="text-sm text-gray-600 dark:text-gray-400">
               The comprehensive database for security and compliance certifications from major companies.
             </p>
-          </div>
-
-          {/* Resources section */}
-          <div className="space-y-4">
-            <h3 className="text-md font-semibold">Resources</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline flex items-center group">
-                  <ExternalLink className="h-4 w-4 mr-2 group-hover:text-primary transition-colors" />
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline flex items-center group">
-                  <ExternalLink className="h-4 w-4 mr-2 group-hover:text-primary transition-colors" />
-                  API Reference
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline flex items-center group">
-                  <ExternalLink className="h-4 w-4 mr-2 group-hover:text-primary transition-colors" />
-                  Compliance Guide
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company section */}
-          <div className="space-y-4">
-            <h3 className="text-md font-semibold">Company</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">About Us</a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Contact</a>
-              </li>
-            </ul>
           </div>
 
           {/* Newsletter section */}
@@ -126,11 +83,6 @@ const Footer: React.FC = () => {
         
         <div className="flex flex-col md:flex-row items-center justify-between text-sm">
           <p className="text-gray-600 dark:text-gray-400">© {currentYear} Trust Center Explorer - Security & Compliance Certification Search Engine</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Privacy</a>
-            <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Terms</a>
-            <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-primary hover:underline">Cookies</a>
-          </div>
         </div>
       </div>
     </footer>
