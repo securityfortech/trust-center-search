@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({
       <header className="bg-background dark:bg-gray-900 pt-6 pb-3 flex flex-col items-center justify-center animate-fade-in">
         <div className="container mx-auto px-4 flex flex-col items-center">
           <div className="w-full flex items-center justify-between mb-4">
-            <Link to="/" className="text-2xl font-bold text-foreground">
+            <Link to="/" className="text-2xl font-bold text-black dark:text-white">
               Trust Center Search
             </Link>
             <Link to="/add-trust-center">
@@ -65,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({
       
       <div className="container mx-auto px-4 flex flex-col items-center relative">
         <div className="w-full flex justify-between items-center py-4">
-          <Link to="/" className="text-2xl font-bold text-foreground">
+          <Link to="/" className="text-2xl font-bold text-black dark:text-white">
             Trust Center Search
           </Link>
           
