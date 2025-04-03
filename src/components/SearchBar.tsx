@@ -46,8 +46,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
     return (
       <form onSubmit={handleSubmit} className="w-full max-w-full mx-auto">
         <div className="relative flex items-center">
-          <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden flex items-center px-4 py-2 shadow-sm">
-            <Search className="h-5 w-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+          <div className="w-full bg-white dark:bg-gray-800 rounded-full overflow-hidden flex items-center px-4 py-2 shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-200 hover:shadow-lg focus-within:ring-2 focus-within:ring-trust-primary/20">
+            <Search className="h-5 w-5 text-trust-primary flex-shrink-0" />
             <Input
               type="search"
               value={searchTerm}
@@ -63,7 +63,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
                 type="button" 
                 variant="ghost" 
                 size="sm" 
-                className="h-8 w-8 p-0" 
+                className="h-8 w-8 p-0 text-trust-primary hover:text-trust-dark hover:bg-trust-light/10" 
                 onClick={clearSearch}
                 aria-label="Clear search"
               >
@@ -78,9 +78,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <form onSubmit={handleSubmit} className="w-full mx-auto">
-      <div className="relative flex items-center shadow-lg hover:shadow-xl transition-shadow rounded-full overflow-hidden">
-        <div className="w-full flex items-center px-5 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full">
-          <Search className="h-5 w-5 text-gray-400 flex-shrink-0" />
+      <div className="relative flex items-center">
+        <div className={`w-full flex items-center px-5 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full transition-all duration-300 ${isFocused ? 'shadow-[0_0_0_2px_rgba(42,111,151,0.2)]' : 'shadow-md hover:shadow-lg'}`}>
+          <Search className="h-5 w-5 text-trust-primary flex-shrink-0" />
           <Input
             type="search"
             value={searchTerm}
@@ -96,14 +96,17 @@ const SearchBar: React.FC<SearchBarProps> = ({
               type="button" 
               variant="ghost" 
               size="sm" 
-              className="h-8 w-8 p-0 mr-1" 
+              className="h-9 w-9 p-0 mr-1 text-trust-primary hover:text-trust-dark hover:bg-trust-light/10 rounded-full" 
               onClick={clearSearch}
               aria-label="Clear search"
             >
-              <X className="h-4 w-4" />
+              <X className="h-5 w-5" />
             </Button>
           )}
         </div>
+      </div>
+      <div className="mt-2 text-xs text-center text-trust-primary/70">
+        Type at least 2 characters to start searching
       </div>
     </form>
   );
