@@ -46,13 +46,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
     return (
       <form onSubmit={handleSubmit} className="w-full max-w-full mx-auto">
         <div className="relative flex items-center">
-          <div className="w-full bg-white dark:bg-gray-800 rounded-full overflow-hidden flex items-center px-4 py-2 shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-200 hover:shadow-lg focus-within:ring-2 focus-within:ring-trust-primary/20">
-            <Search className="h-5 w-5 text-trust-primary flex-shrink-0" />
+          <div className="w-full bg-trust-light/10 dark:bg-trust-dark/20 rounded-full overflow-hidden flex items-center px-4 py-2 shadow-md border border-trust-primary/20 dark:border-trust-secondary/20 transition-all duration-200 hover:shadow-lg focus-within:ring-2 focus-within:ring-trust-primary/30">
+            <Search className="h-5 w-5 text-trust-primary dark:text-trust-secondary flex-shrink-0" />
             <Input
               type="search"
               value={searchTerm}
               onChange={handleChange}
-              className="border-0 bg-transparent pl-3 pr-2 py-2 w-full h-10 focus:ring-0 focus:outline-none text-base"
+              className="border-0 bg-transparent pl-3 pr-2 py-2 w-full h-10 focus:ring-0 focus:outline-none text-base text-trust-dark dark:text-trust-light placeholder-trust-primary/60 dark:placeholder-trust-secondary/60"
               placeholder={placeholder}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
@@ -63,7 +63,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
                 type="button" 
                 variant="ghost" 
                 size="sm" 
-                className="h-8 w-8 p-0 text-trust-primary hover:text-trust-dark hover:bg-trust-light/10" 
+                className="h-8 w-8 p-0 text-trust-primary hover:text-trust-dark hover:bg-trust-light/20 dark:hover:bg-trust-dark/30" 
                 onClick={clearSearch}
                 aria-label="Clear search"
               >
@@ -79,13 +79,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <form onSubmit={handleSubmit} className="w-full mx-auto">
       <div className="relative flex items-center">
-        <div className={`w-full flex items-center px-5 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full transition-all duration-300 ${isFocused ? 'shadow-[0_0_0_2px_rgba(42,111,151,0.2)]' : 'shadow-md hover:shadow-lg'}`}>
-          <Search className="h-5 w-5 text-trust-primary flex-shrink-0" />
+        <div className={`w-full flex items-center px-5 py-3 bg-trust-light/5 dark:bg-trust-dark/10 border border-trust-primary/10 dark:border-trust-secondary/10 rounded-full transition-all duration-300 ${isFocused ? 'shadow-[0_0_0_2px_rgba(42,111,151,0.2)]' : 'shadow-md hover:shadow-lg'}`}>
+          <Search className="h-5 w-5 text-trust-primary dark:text-trust-secondary flex-shrink-0" />
           <Input
             type="search"
             value={searchTerm}
             onChange={handleChange}
-            className="border-0 bg-transparent ml-3 flex-grow h-10 focus:ring-0 focus:outline-none text-lg"
+            className="border-0 bg-transparent ml-3 flex-grow h-10 focus:ring-0 focus:outline-none text-lg text-trust-dark dark:text-trust-light placeholder-trust-primary/60 dark:placeholder-trust-secondary/60"
             placeholder={placeholder}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
@@ -96,7 +96,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
               type="button" 
               variant="ghost" 
               size="sm" 
-              className="h-9 w-9 p-0 mr-1 text-trust-primary hover:text-trust-dark hover:bg-trust-light/10 rounded-full" 
+              className="h-9 w-9 p-0 mr-1 text-trust-primary hover:text-trust-dark hover:bg-trust-light/20 dark:hover:bg-trust-dark/30 rounded-full" 
               onClick={clearSearch}
               aria-label="Clear search"
             >
