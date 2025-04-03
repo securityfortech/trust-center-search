@@ -26,7 +26,11 @@ const GridViewCard: React.FC<GridViewCardProps> = ({
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent opacity-80"></div>
       <CardHeader className="pb-2">
         <CardTitle className="text-xl flex justify-between items-center">
-          <span className="truncate pr-2 text-trust-dark dark:text-trust-light">{company.Company}</span>
+          <span 
+            className="truncate pr-2 bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent font-bold"
+          >
+            {company.Company}
+          </span>
           {company['Trust Center URL'] && (
             <TooltipProvider>
               <Tooltip>

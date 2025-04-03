@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink, Copy, Check } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -25,7 +24,11 @@ const ListViewCard: React.FC<ListViewCardProps> = ({
     <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in flex flex-row overflow-hidden bg-gradient-to-r from-white to-trust-light/5 dark:from-gray-900 dark:to-trust-dark/20 border-trust-light/20 dark:border-trust-dark/30">
       <div className="flex-grow p-4 flex flex-col md:flex-row md:items-center">
         <div className="md:w-1/3">
-          <h3 className="text-lg font-medium truncate text-trust-dark dark:text-trust-light">{company.Company}</h3>
+          <h3 
+            className="text-lg font-medium truncate bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent"
+          >
+            {company.Company}
+          </h3>
         </div>
         
         <div className="flex-grow md:w-1/3 mt-2 md:mt-0">
