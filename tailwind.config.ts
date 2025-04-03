@@ -57,11 +57,11 @@ export default {
           foreground: 'hsl(var(--card-foreground))'
         },
         trust: {
-          primary: '#2a6f97',
-          secondary: '#468faf',
-          accent: '#61a5c2',
-          dark: '#013a63',
-          light: '#89c2d9',
+          primary: '#6a4c93',
+          secondary: '#8c6bc9',
+          accent: '#ae81ff',
+          dark: '#4a4e69',
+          light: '#9db4c0'
         }
       },
       borderRadius: {
