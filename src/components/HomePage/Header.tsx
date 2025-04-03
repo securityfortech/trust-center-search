@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({
       <header className="bg-background dark:bg-gray-900 pt-6 pb-3 flex flex-col items-center justify-center animate-fade-in">
         <div className="container mx-auto px-4 flex flex-col items-center">
           <div className="w-full flex items-center justify-between mb-4">
-            <Link to="/" className="text-2xl font-bold flex items-center bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold text-foreground">
               Trust Center Search
             </Link>
             <Link to="/add-trust-center">
@@ -57,7 +57,6 @@ const Header: React.FC<HeaderProps> = ({
   
   return (
     <header className="bg-background dark:bg-gray-900 flex flex-col items-center justify-center min-h-[30vh] pb-2 animate-fade-in relative">
-      {/* Subtle background pattern */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute w-full h-full opacity-[0.02]" style={{ 
           backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" 
@@ -66,7 +65,9 @@ const Header: React.FC<HeaderProps> = ({
       
       <div className="container mx-auto px-4 flex flex-col items-center relative">
         <div className="w-full flex justify-between items-center py-4">
-          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent">Trust Center Search</Link>
+          <Link to="/" className="text-2xl font-bold text-foreground">
+            Trust Center Search
+          </Link>
           
           <NavigationMenu>
             <NavigationMenuList>
