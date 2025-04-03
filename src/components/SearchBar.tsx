@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Search, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -74,7 +75,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       </form>
     );
   }
-
+  
   return (
     <form onSubmit={handleSubmit} className="w-full mx-auto">
       <div className="relative flex items-center">
@@ -109,3 +110,4 @@ const SearchBar: React.FC<SearchBarProps> = ({
 };
 
 export default SearchBar;
+
