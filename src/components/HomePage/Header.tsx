@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({
       <header className="bg-background dark:bg-gray-900 pt-6 pb-3 flex flex-col items-center justify-center animate-fade-in">
         <div className="container mx-auto px-4 flex flex-col items-center">
           <div className="w-full flex items-center justify-between mb-4">
-            <Link to="/" className="text-2xl font-bold flex items-center text-primary">
+            <Link to="/" className="text-2xl font-bold flex items-center bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent">
               Trust Center Search
             </Link>
             <Link to="/add-trust-center">
@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({
       
       <div className="container mx-auto px-4 flex flex-col items-center relative">
         <div className="w-full flex justify-between items-center py-4">
-          <Link to="/" className="text-2xl font-bold text-primary">Trust Center Search</Link>
+          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent">Trust Center Search</Link>
           
           <NavigationMenu>
             <NavigationMenuList>
@@ -119,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({
         </div>
         
         <div className="mb-12 md:mb-14 text-center animate-slide-down">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-primary">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent">
             Trust Center Search
           </h1>
           <p className="text-lg text-muted-foreground mt-4 md:mt-5 max-w-lg mx-auto">

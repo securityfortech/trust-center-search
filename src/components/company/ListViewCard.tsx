@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useMemo } from 'react';
 import { ExternalLink, Copy, Check } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -13,6 +14,18 @@ interface ListViewCardProps {
   certificationBadges: string[];
 }
 
+// Array of gradient colors for cards
+const cardGradients = [
+  'from-white to-pink-50/10 dark:from-gray-900 dark:to-pink-900/20',
+  'from-white to-blue-50/10 dark:from-gray-900 dark:to-blue-900/20',
+  'from-white to-purple-50/10 dark:from-gray-900 dark:to-purple-900/20',
+  'from-white to-green-50/10 dark:from-gray-900 dark:to-green-900/20',
+  'from-white to-amber-50/10 dark:from-gray-900 dark:to-amber-900/20',
+  'from-white to-teal-50/10 dark:from-gray-900 dark:to-teal-900/20',
+  'from-white to-indigo-50/10 dark:from-gray-900 dark:to-indigo-900/20',
+  'from-white to-trust-light/5 dark:from-gray-900 dark:to-trust-dark/20',
+];
+
 const ListViewCard: React.FC<ListViewCardProps> = ({ 
   company, 
   hasCertifications, 
@@ -20,8 +33,19 @@ const ListViewCard: React.FC<ListViewCardProps> = ({
 }) => {
   const { copied, handleCopyLink } = useClipboard(company);
 
+  // Generate deterministic but random-looking index based on company name
+  const getRandomIndex = useMemo(() => {
+    let hash = 0;
+    for (let i = 0; i < company.Company.length; i++) {
+      hash = company.Company.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash) % cardGradients.length;
+  }, [company.Company]);
+  
+  const cardGradient = cardGradients[getRandomIndex];
+
   return (
-    <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in flex flex-row overflow-hidden bg-gradient-to-r from-white to-trust-light/5 dark:from-gray-900 dark:to-trust-dark/20 border-trust-light/20 dark:border-trust-dark/30">
+    <Card className={`w-full transition-all duration-300 hover:shadow-md animate-fade-in flex flex-row overflow-hidden bg-gradient-to-r ${cardGradient} border-trust-light/20 dark:border-trust-dark/30`}>
       <div className="flex-grow p-4 flex flex-col md:flex-row md:items-center">
         <div className="md:w-1/3">
           <h3 

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { ExternalLink, Copy, Check } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -14,16 +14,52 @@ interface GridViewCardProps {
   certificationBadges: string[];
 }
 
+// Array of gradient colors for cards
+const cardGradients = [
+  'from-pink-50 via-white to-pink-100 dark:from-pink-950/30 dark:via-gray-900 dark:to-pink-900/20',
+  'from-blue-50 via-white to-blue-100 dark:from-blue-950/30 dark:via-gray-900 dark:to-blue-900/20',
+  'from-purple-50 via-white to-purple-100 dark:from-purple-950/30 dark:via-gray-900 dark:to-purple-900/20',
+  'from-green-50 via-white to-green-100 dark:from-green-950/30 dark:via-gray-900 dark:to-green-900/20',
+  'from-amber-50 via-white to-amber-100 dark:from-amber-950/30 dark:via-gray-900 dark:to-amber-900/20',
+  'from-teal-50 via-white to-teal-100 dark:from-teal-950/30 dark:via-gray-900 dark:to-teal-900/20',
+  'from-indigo-50 via-white to-indigo-100 dark:from-indigo-950/30 dark:via-gray-900 dark:to-indigo-900/20',
+  'from-cyan-50 via-white to-cyan-100 dark:from-cyan-950/30 dark:via-gray-900 dark:to-cyan-900/20',
+];
+
+// Array of accent line gradients
+const accentGradients = [
+  'from-pink-500 via-rose-500 to-pink-400',
+  'from-blue-500 via-sky-500 to-blue-400',
+  'from-purple-500 via-violet-500 to-purple-400',
+  'from-green-500 via-emerald-500 to-green-400',
+  'from-amber-500 via-yellow-500 to-amber-400',
+  'from-teal-500 via-cyan-500 to-teal-400',
+  'from-indigo-500 via-blue-500 to-indigo-400',
+  'from-trust-primary via-trust-secondary to-trust-accent',
+];
+
 const GridViewCard: React.FC<GridViewCardProps> = ({ 
   company, 
   hasCertifications, 
   certificationBadges 
 }) => {
   const { copied, handleCopyLink } = useClipboard(company);
+  
+  // Generate deterministic but random-looking index based on company name
+  const getRandomIndex = useMemo(() => {
+    let hash = 0;
+    for (let i = 0; i < company.Company.length; i++) {
+      hash = company.Company.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash) % cardGradients.length;
+  }, [company.Company]);
+  
+  const cardGradient = cardGradients[getRandomIndex];
+  const accentGradient = accentGradients[getRandomIndex];
 
   return (
-    <Card className="w-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 animate-fade-in h-full flex flex-col bg-gradient-to-br from-white via-white to-trust-light/10 dark:from-gray-900 dark:via-gray-900 dark:to-trust-dark/20 border-trust-light/20 dark:border-trust-dark/30 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent opacity-80"></div>
+    <Card className={`w-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 animate-fade-in h-full flex flex-col bg-gradient-to-br ${cardGradient} border-trust-light/20 dark:border-trust-dark/30 overflow-hidden`}>
+      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accentGradient} opacity-80`}></div>
       <CardHeader className="pb-2">
         <CardTitle className="text-xl flex justify-between items-center">
           <span 
