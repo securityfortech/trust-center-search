@@ -56,17 +56,17 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, layout = 'grid' }) =
 
   if (layout === 'list') {
     return (
-      <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in flex flex-row overflow-hidden">
+      <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in flex flex-row overflow-hidden bg-gradient-to-r from-white to-trust-light/5 dark:from-gray-900 dark:to-trust-dark/20 border-trust-light/20 dark:border-trust-dark/30">
         <div className="flex-grow p-4 flex flex-col md:flex-row md:items-center">
           <div className="md:w-1/3">
-            <h3 className="text-lg font-medium truncate">{company.Company}</h3>
+            <h3 className="text-lg font-medium truncate text-trust-dark dark:text-trust-light">{company.Company}</h3>
           </div>
           
           <div className="flex-grow md:w-1/3 mt-2 md:mt-0">
             {hasCertifications && (
               <div className="flex flex-wrap gap-1">
                 {certificationBadges.map((cert) => (
-                  <Badge key={cert} variant="secondary" className="text-xs">{cert}</Badge>
+                  <Badge key={cert} variant="secondary" className="text-xs bg-trust-primary/10 hover:bg-trust-primary/20 text-trust-primary dark:bg-trust-secondary/20 dark:hover:bg-trust-secondary/30 dark:text-trust-secondary">{cert}</Badge>
                 ))}
               </div>
             )}
@@ -81,10 +81,10 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, layout = 'grid' }) =
                       <Button 
                         size="sm" 
                         variant="outline" 
-                        className="h-8"
+                        className="h-8 bg-white/80 dark:bg-gray-800/80 border-trust-primary/20 dark:border-trust-secondary/20 hover:bg-trust-light/20 dark:hover:bg-trust-dark/30"
                         onClick={handleCopyLink}
                       >
-                        {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                        {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4 text-trust-primary dark:text-trust-secondary" />}
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent>
@@ -99,7 +99,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, layout = 'grid' }) =
                       <Button 
                         size="sm" 
                         variant="default"
-                        className="h-8"
+                        className="h-8 bg-trust-primary hover:bg-trust-dark dark:bg-trust-secondary dark:hover:bg-trust-accent"
                         asChild
                       >
                         <a 
@@ -127,10 +127,11 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, layout = 'grid' }) =
   }
   
   return (
-    <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in h-full flex flex-col">
+    <Card className="w-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 animate-fade-in h-full flex flex-col bg-gradient-to-br from-white via-white to-trust-light/10 dark:from-gray-900 dark:via-gray-900 dark:to-trust-dark/20 border-trust-light/20 dark:border-trust-dark/30 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent opacity-80"></div>
       <CardHeader className="pb-2">
         <CardTitle className="text-xl flex justify-between items-center">
-          <span className="truncate pr-2">{company.Company}</span>
+          <span className="truncate pr-2 text-trust-dark dark:text-trust-light">{company.Company}</span>
           {company['Trust Center URL'] && (
             <TooltipProvider>
               <Tooltip>
@@ -139,7 +140,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, layout = 'grid' }) =
                     href={company['Trust Center URL']} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 transition-colors flex-shrink-0"
+                    className="text-trust-primary hover:text-trust-dark dark:text-trust-secondary dark:hover:text-trust-light transition-colors flex-shrink-0"
                     aria-label={`Visit ${company.Company}'s trust center`}
                   >
                     <ExternalLink className="h-5 w-5" />
@@ -166,16 +167,16 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, layout = 'grid' }) =
             <Button
               variant="outline"
               size="sm"
-              className="text-xs flex-1 h-8"
+              className="text-xs flex-1 h-8 bg-white/70 dark:bg-gray-800/70 border-trust-primary/20 dark:border-trust-secondary/20 hover:bg-trust-light/20 dark:hover:bg-trust-dark/30 text-trust-primary dark:text-trust-secondary"
               onClick={handleCopyLink}
             >
-              {copied ? <Check className="h-3 w-3 mr-1" /> : <Copy className="h-3 w-3 mr-1" />}
+              {copied ? <Check className="h-3 w-3 mr-1 text-green-500" /> : <Copy className="h-3 w-3 mr-1" />}
               Copy Link
             </Button>
             <Button
               variant="default"
               size="sm"
-              className="text-xs flex-1 h-8"
+              className="text-xs flex-1 h-8 bg-trust-primary hover:bg-trust-dark dark:bg-trust-secondary dark:hover:bg-trust-accent"
               asChild
             >
               <a 
@@ -193,7 +194,13 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, layout = 'grid' }) =
         {hasCertifications && (
           <div className="flex flex-wrap gap-1 w-full">
             {certificationBadges.map((cert) => (
-              <Badge key={cert} variant="secondary" className="text-xs">{cert}</Badge>
+              <Badge 
+                key={cert} 
+                variant="secondary" 
+                className="text-xs bg-trust-primary/10 hover:bg-trust-primary/20 text-trust-primary dark:bg-trust-secondary/20 dark:hover:bg-trust-secondary/30 dark:text-trust-secondary"
+              >
+                {cert}
+              </Badge>
             ))}
           </div>
         )}
