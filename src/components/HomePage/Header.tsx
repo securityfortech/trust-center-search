@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Shield } from 'lucide-react';
+import { Shield, Search } from 'lucide-react';
 import SearchBar from '@/components/SearchBar';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -17,15 +17,15 @@ const Header: React.FC<HeaderProps> = ({
 
   if (isMobile) {
     return (
-      <header className="bg-background dark:bg-gray-900 pt-4 pb-2 flex flex-col items-center justify-center animate-fade-in">
+      <header className="bg-background dark:bg-gray-900 pt-6 pb-3 flex flex-col items-center justify-center animate-fade-in">
         <div className="container mx-auto px-4 flex flex-col items-center">
-          <div className="mb-8 mt-2 text-center">
-            <div className="flex items-center justify-center">
-              <Shield className="h-6 w-6 text-primary mr-2" />
-              <h1 className="text-3xl font-bold text-trust-dark dark:text-white">Trust Center</h1>
+          <div className="mb-8 mt-3 text-center">
+            <div className="flex items-center justify-center mb-2">
+              <Shield className="h-7 w-7 text-primary mr-2 animate-pulse-slow" />
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Trust Center</h1>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-3">
-              Find and explore Trust Centers from {totalCompanies} leading companies
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 max-w-sm">
+              Find and explore Trust Centers from <span className="font-semibold text-primary">{totalCompanies}</span> leading companies
             </p>
           </div>
           
@@ -38,19 +38,26 @@ const Header: React.FC<HeaderProps> = ({
   }
   
   return (
-    <header className="bg-white dark:bg-gray-900 flex flex-col items-center justify-center min-h-[25vh] pb-2 animate-fade-in">
+    <header className="bg-background dark:bg-gray-900 flex flex-col items-center justify-center min-h-[30vh] pb-2 animate-fade-in relative">
+      {/* Decorative elements */}
+      <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-secondary/5 rounded-full blur-3xl -z-10"></div>
+      
       <div className="container mx-auto px-4 flex flex-col items-center relative">
-        <div className="mb-10 md:mb-10 text-center">
-          <div className="flex items-center justify-center">
-            <Shield className="h-10 w-10 md:h-14 md:w-14 text-primary mr-3" />
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-trust-dark dark:text-white">Trust Center Search</h1>
+        <div className="mb-12 md:mb-14 text-center animate-slide-down">
+          <div className="flex items-center justify-center mb-3">
+            <Shield className="h-12 w-12 md:h-16 md:w-16 text-primary mr-3 animate-pulse-slow" />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Trust Center Search
+            </h1>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 md:mt-4">
-            Find and explore Trust Centers from {totalCompanies} leading companies
+          <p className="text-lg text-gray-600 dark:text-gray-400 mt-4 md:mt-5 max-w-lg mx-auto">
+            Find and explore Trust Centers from <span className="font-semibold text-primary">{totalCompanies}</span> leading companies
           </p>
         </div>
         
-        <div className="w-full max-w-2xl mb-1">
+        <div className="w-full max-w-2xl mb-1 relative animate-slide-up">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl -z-10 opacity-70"></div>
           <SearchBar onSearch={onSearch} />
         </div>
       </div>
