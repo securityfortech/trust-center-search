@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Search, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -104,9 +103,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
             </Button>
           )}
         </div>
-      </div>
-      <div className="mt-2 text-xs text-center text-trust-primary/70">
-        Type at least 2 characters to start searching
       </div>
     </form>
   );
