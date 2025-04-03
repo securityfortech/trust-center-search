@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Shield, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import SearchBar from '@/components/SearchBar';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -21,11 +21,10 @@ const Header: React.FC<HeaderProps> = ({
         <div className="container mx-auto px-4 flex flex-col items-center">
           <div className="mb-8 mt-3 text-center">
             <div className="flex items-center justify-center mb-2">
-              <Shield className="h-7 w-7 text-primary mr-2 animate-pulse-slow" />
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Trust Center</h1>
+              <h1 className="text-3xl font-bold">TrustSource</h1>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 max-w-sm">
-              Find and explore Trust Centers from <span className="font-semibold text-primary">{totalCompanies}</span> leading companies
+            <p className="text-sm text-muted-foreground mt-2 max-w-sm">
+              Find and explore Trust Centers from <span className="font-semibold">{totalCompanies}</span> leading companies
             </p>
           </div>
           
@@ -39,25 +38,25 @@ const Header: React.FC<HeaderProps> = ({
   
   return (
     <header className="bg-background dark:bg-gray-900 flex flex-col items-center justify-center min-h-[30vh] pb-2 animate-fade-in relative">
-      {/* Decorative elements */}
-      <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-secondary/5 rounded-full blur-3xl -z-10"></div>
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute w-full h-full opacity-[0.02]" style={{ 
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" 
+        }}></div>
+      </div>
       
       <div className="container mx-auto px-4 flex flex-col items-center relative">
         <div className="mb-12 md:mb-14 text-center animate-slide-down">
-          <div className="flex items-center justify-center mb-3">
-            <Shield className="h-12 w-12 md:h-16 md:w-16 text-primary mr-3 animate-pulse-slow" />
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Trust Center Search
-            </h1>
-          </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mt-4 md:mt-5 max-w-lg mx-auto">
-            Find and explore Trust Centers from <span className="font-semibold text-primary">{totalCompanies}</span> leading companies
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
+            TrustSource
+          </h1>
+          <p className="text-lg text-muted-foreground mt-4 md:mt-5 max-w-lg mx-auto">
+            Find and explore Trust Centers from <span className="font-semibold">{totalCompanies}</span> leading companies
           </p>
         </div>
         
         <div className="w-full max-w-2xl mb-1 relative animate-slide-up">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl -z-10 opacity-70"></div>
+          <div className="absolute inset-0 bg-black/5 dark:bg-white/5 rounded-2xl blur-xl -z-10 opacity-70"></div>
           <SearchBar onSearch={onSearch} />
         </div>
       </div>

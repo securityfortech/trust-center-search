@@ -58,12 +58,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				trust: {
-					primary: '#0f172a',
-					secondary: '#0d9488',
-					blue: '#1e40af',
-					teal: '#0d9488',
-					light: '#f8fafc',
-					dark: '#0f172a',
+					primary: '#1a1a1a',
+					secondary: '#2c2c2c',
+					blue: '#2a363b',
+					teal: '#2a363b',
+					light: '#f4f4f4',
+					dark: '#1a1a1a',
 				}
 			},
 			borderRadius: {
@@ -129,7 +129,7 @@ export default {
 						opacity: '1'
 					},
 					'50%': {
-						opacity: '0.8'
+						opacity: '0.7'
 					}
 				}
 			},
@@ -145,7 +145,7 @@ export default {
 			boxShadow: {
 				'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
 				'card': '0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 8px -2px rgba(0, 0, 0, 0.1)',
-				'glow': '0 0 20px rgba(79, 70, 229, 0.2)'
+				'glow': '0 0 20px rgba(0, 0, 0, 0.15)'
 			}
 		}
 	},
