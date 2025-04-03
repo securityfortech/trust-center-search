@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { Search } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface SearchBarProps {
@@ -36,6 +37,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
     onSearch(searchTerm);
   };
 
+  const clearSearch = () => {
+    setSearchTerm('');
+    onSearch('');
+  };
+
   if (isMobile) {
     return (
       <form onSubmit={handleSubmit} className="w-full max-w-full mx-auto">
@@ -50,7 +56,20 @@ const SearchBar: React.FC<SearchBarProps> = ({
               placeholder={placeholder}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
+              aria-label="Search for a company"
             />
+            {searchTerm && (
+              <Button 
+                type="button" 
+                variant="ghost" 
+                size="sm" 
+                className="h-8 w-8 p-0" 
+                onClick={clearSearch}
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            )}
           </div>
         </div>
       </form>
@@ -70,7 +89,20 @@ const SearchBar: React.FC<SearchBarProps> = ({
             placeholder={placeholder}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            aria-label="Search for a company"
           />
+          {searchTerm && (
+            <Button 
+              type="button" 
+              variant="ghost" 
+              size="sm" 
+              className="h-8 w-8 p-0 mr-1" 
+              onClick={clearSearch}
+              aria-label="Clear search"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          )}
         </div>
       </div>
     </form>

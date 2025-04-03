@@ -17,7 +17,7 @@ const Index = () => {
   const { trackPageLeave } = useAnalytics();
   
   useEffect(() => {
-    document.title = "Trust Center Search - search.securityfortech.com";
+    document.title = "Trust Center Search - Find Security & Compliance Information";
     const viewportMeta = document.querySelector('meta[name="viewport"]');
     if (viewportMeta) {
       viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
