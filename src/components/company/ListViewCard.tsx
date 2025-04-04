@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink, Copy, Check } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -7,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { CompanyType } from './types';
 import { useClipboard } from '@/hooks/useClipboard';
-import { useGradient } from '@/utils/gradientUtils';
 
 interface ListViewCardProps {
   company: CompanyType;
@@ -21,10 +19,9 @@ const ListViewCard: React.FC<ListViewCardProps> = ({
   certificationBadges 
 }) => {
   const { copied, handleCopyLink } = useClipboard(company);
-  const gradient = useGradient(company.Company, 'list');
   
   return (
-    <Card className={`w-full transition-all duration-300 hover:shadow-md animate-fade-in flex flex-row overflow-hidden bg-gradient-to-r ${gradient.card} border-trust-light/20 dark:border-trust-dark/30`}>
+    <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in flex flex-row overflow-hidden border-trust-light/20 dark:border-trust-dark/30">
       <div className="flex-grow p-4 flex flex-col md:flex-row md:items-center">
         <div className="md:w-1/3">
           <h3 

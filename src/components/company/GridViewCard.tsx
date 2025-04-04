@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink, Copy, Check } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { CompanyType } from './types';
 import { useClipboard } from '@/hooks/useClipboard';
-import { useGradient } from '@/utils/gradientUtils';
 
 interface GridViewCardProps {
   company: CompanyType;
@@ -21,11 +19,10 @@ const GridViewCard: React.FC<GridViewCardProps> = ({
   certificationBadges 
 }) => {
   const { copied, handleCopyLink } = useClipboard(company);
-  const gradient = useGradient(company.Company, 'grid');
   
   return (
-    <Card className={`w-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 animate-fade-in h-full flex flex-col bg-gradient-to-br ${gradient.card} border-trust-light/20 dark:border-trust-dark/30 overflow-hidden`}>
-      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${gradient.accent}`}></div>
+    <Card className="w-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 animate-fade-in h-full flex flex-col border-trust-light/20 dark:border-trust-dark/30 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-1"></div>
       <CardHeader className="pb-2">
         <CardTitle className="text-xl flex justify-between items-center">
           <span 
