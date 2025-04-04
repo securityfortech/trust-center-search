@@ -35,7 +35,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     // Initialize PostHog
     posthog.init(POSTHOG_KEY, {
       api_host: POSTHOG_HOST,
-      person_profiles: 'identified_only',
+      person_profiles: 'always',
       capture_pageview: false, // Disable automatic pageview capture, as we capture manually
       capture_pageleave: true  // Enable page leave event tracking
     });
