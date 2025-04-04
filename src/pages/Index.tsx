@@ -1,6 +1,6 @@
-
 import React, { useEffect } from 'react';
 import LoadingIndicator from '@/components/LoadingIndicator';
+import Header from '@/components/HomePage/Header';
 import Footer from '@/components/HomePage/Footer';
 import DataProvider from '@/components/HomePage/DataProvider';
 import CompanyResults from '@/components/HomePage/CompanyResults';
@@ -38,12 +38,18 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen bg-background flex flex-col ${isMobile ? 'justify-between' : ''}`}>
+      <Header 
+        onSearch={() => {}} 
+        totalCompanies={0} 
+      />
+      
       <DataProvider csvUrl={GOOGLE_SHEETS_URL}>
         {({
           companies,
           filteredCompanies,
           isLoading,
           isInitialLoad,
+          handleSearch,
           totalCompanies
         }) => {
           useEffect(() => {
