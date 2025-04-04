@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 import { ExternalLink, Copy, Check } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -16,13 +15,13 @@ interface ListViewCardProps {
 
 // Array of gradient colors for cards
 const cardGradients = [
-  'from-white to-pink-50/10 dark:from-gray-900 dark:to-pink-900/20',
+  'from-white to-gray-50/10 dark:from-gray-900 dark:to-gray-900/20',
   'from-white to-blue-50/10 dark:from-gray-900 dark:to-blue-900/20',
   'from-white to-purple-50/10 dark:from-gray-900 dark:to-purple-900/20',
   'from-white to-green-50/10 dark:from-gray-900 dark:to-green-900/20',
-  'from-white to-amber-50/10 dark:from-gray-900 dark:to-amber-900/20',
-  'from-white to-teal-50/10 dark:from-gray-900 dark:to-teal-900/20',
-  'from-white to-indigo-50/10 dark:from-gray-900 dark:to-indigo-900/20',
+  'from-white to-stone-50/10 dark:from-gray-900 dark:to-stone-900/20',
+  'from-white to-neutral-50/10 dark:from-gray-900 dark:to-neutral-900/20',
+  'from-white to-zinc-50/10 dark:from-gray-900 dark:to-zinc-900/20',
   'from-white to-trust-light/5 dark:from-gray-900 dark:to-trust-dark/20',
 ];
 

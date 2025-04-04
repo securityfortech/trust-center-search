@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 import { ExternalLink, Copy, Check } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,25 +15,24 @@ interface GridViewCardProps {
 
 // Array of gradient colors for cards
 const cardGradients = [
-  'from-pink-50 via-white to-pink-100 dark:from-pink-950/30 dark:via-gray-900 dark:to-pink-900/20',
+  'from-gray-50 via-white to-gray-100 dark:from-gray-950/30 dark:via-gray-900 dark:to-gray-900/20',
   'from-blue-50 via-white to-blue-100 dark:from-blue-950/30 dark:via-gray-900 dark:to-blue-900/20',
   'from-purple-50 via-white to-purple-100 dark:from-purple-950/30 dark:via-gray-900 dark:to-purple-900/20',
   'from-green-50 via-white to-green-100 dark:from-green-950/30 dark:via-gray-900 dark:to-green-900/20',
-  'from-amber-50 via-white to-amber-100 dark:from-amber-950/30 dark:via-gray-900 dark:to-amber-900/20',
-  'from-teal-50 via-white to-teal-100 dark:from-teal-950/30 dark:via-gray-900 dark:to-teal-900/20',
-  'from-indigo-50 via-white to-indigo-100 dark:from-indigo-950/30 dark:via-gray-900 dark:to-indigo-900/20',
-  'from-cyan-50 via-white to-cyan-100 dark:from-cyan-950/30 dark:via-gray-900 dark:to-cyan-900/20',
+  'from-stone-50 via-white to-stone-100 dark:from-stone-950/30 dark:via-gray-900 dark:to-stone-900/20',
+  'from-neutral-50 via-white to-neutral-100 dark:from-neutral-950/30 dark:via-gray-900 dark:to-neutral-900/20',
+  'from-zinc-50 via-white to-zinc-100 dark:from-zinc-950/30 dark:via-gray-900 dark:to-zinc-900/20',
+  'from-white via-white/90 to-white/80 dark:from-gray-950/30 dark:via-gray-900 dark:to-gray-900/20',
 ];
 
 // Array of accent line gradients
 const accentGradients = [
-  'from-pink-500 via-rose-500 to-pink-400',
-  'from-blue-500 via-sky-500 to-blue-400',
-  'from-purple-500 via-violet-500 to-purple-400',
-  'from-green-500 via-emerald-500 to-green-400',
-  'from-amber-500 via-yellow-500 to-amber-400',
-  'from-teal-500 via-cyan-500 to-teal-400',
-  'from-indigo-500 via-blue-500 to-indigo-400',
+  'from-gray-400 via-gray-500 to-gray-400',
+  'from-blue-400 via-blue-500 to-blue-400',
+  'from-purple-400 via-purple-500 to-purple-400',
+  'from-green-400 via-green-500 to-green-400',
+  'from-stone-400 via-stone-500 to-stone-400',
+  'from-neutral-400 via-neutral-500 to-neutral-400',
   'from-trust-primary via-trust-secondary to-trust-accent',
 ];
 
