@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import LoadingIndicator from '@/components/LoadingIndicator';
 import Header from '@/components/HomePage/Header';
@@ -38,11 +39,6 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen bg-background flex flex-col ${isMobile ? 'justify-between' : ''}`}>
-      <Header 
-        onSearch={() => {}} 
-        totalCompanies={0} 
-      />
-      
       <DataProvider csvUrl={GOOGLE_SHEETS_URL}>
         {({
           companies,
@@ -62,6 +58,8 @@ const Index = () => {
           
           return (
             <>
+              <Header onSearch={handleSearch} totalCompanies={totalCompanies} />
+              
               <main className="flex-grow px-4 md:px-6 lg:px-8 pt-4 pb-8">
                 {isLoading ? (
                   <div className="flex justify-center items-center h-24">

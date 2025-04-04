@@ -64,6 +64,60 @@ const Header: React.FC<HeaderProps> = ({
       </div>
       
       <div className="container mx-auto px-4 flex flex-col items-center relative">
+        <div className="w-full flex justify-between items-center py-4">
+          <Link to="/" className="text-2xl font-bold text-black dark:text-white">
+            Trust Center Search
+          </Link>
+          
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm">About</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px]">
+                    <li className="row-span-3">
+                      <NavigationMenuLink asChild>
+                        <a
+                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-gray-50 to-gray-100 p-6 no-underline outline-none focus:shadow-md"
+                          href="#"
+                        >
+                          <div className="mb-2 mt-4 text-lg font-medium">
+                            What is Trust Center Search?
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            A searchable database of company Trust Centers and security compliance information
+                          </p>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link to="/add-trust-center" className={cn(
+                  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none"
+                )}>
+                  Add Trust Center
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="ghost" size="icon" className="ml-2" aria-label="Help">
+                        <HelpCircle className="h-5 w-5" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Search for company trust centers and compliance information</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+        
         <div className="mb-12 md:mb-14 text-center animate-slide-down">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent">
             Trust Center Search
