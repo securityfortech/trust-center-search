@@ -119,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({
         </div>
         
         <div className="mb-12 md:mb-14 text-center animate-slide-down">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-foreground">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent">
             Trust Center Search
           </h1>
           <p className="text-lg text-muted-foreground mt-4 md:mt-5 max-w-lg mx-auto">
