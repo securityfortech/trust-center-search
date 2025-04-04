@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { Github, Twitter, Mail, Linkedin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { toast } from '@/components/ui/sonner';
 import { Link } from 'react-router-dom';
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const isMobile = useIsMobile();
@@ -13,6 +15,7 @@ const Footer: React.FC = () => {
       duration: 3000
     });
   };
+
   return <footer className="bg-background dark:bg-gray-900 mt-auto py-8 md:py-12 border-t border-gray-100 dark:border-gray-800 relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -26,11 +29,11 @@ const Footer: React.FC = () => {
             </p>
             
             <div className="flex flex-col space-y-3 items-center md:items-start">
-              <Link to="/add-trust-center" className="group text-trust-primary hover:text-trust-dark text-sm md:text-base font-medium transition-colors inline-flex items-center">
-                <span className="border-b border-transparent group-hover:border-current transition-colors text-slate-950">Add your Trust Center</span>
+              <Link to="/add-trust-center" className="group text-muted-foreground hover:text-primary text-sm md:text-base transition-colors inline-flex items-center">
+                <span className="border-b border-transparent group-hover:border-current transition-colors">Add your Trust Center</span>
               </Link>
-              <button onClick={handleCopyLink} className="group text-trust-primary hover:text-trust-dark text-sm md:text-base font-medium transition-colors inline-flex items-center">
-                <span className="border-b border-transparent group-hover:border-current transition-colors text-slate-950">Share this tool</span>
+              <button onClick={handleCopyLink} className="group text-muted-foreground hover:text-primary text-sm md:text-base transition-colors inline-flex items-center">
+                <span className="border-b border-transparent group-hover:border-current transition-colors">Share this tool</span>
               </button>
             </div>
           </div>
@@ -82,4 +85,6 @@ const Footer: React.FC = () => {
       </div>
     </footer>;
 };
+
 export default Footer;
+
