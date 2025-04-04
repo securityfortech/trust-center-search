@@ -4,10 +4,8 @@ import { Search, ExternalLink, HelpCircle } from 'lucide-react';
 import SearchBar from '@/components/SearchBar';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from 'react-router-dom';
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface HeaderProps {
   onSearch: (searchTerm: string) => void;
@@ -27,11 +25,6 @@ const Header: React.FC<HeaderProps> = ({
           <div className="w-full flex items-center justify-between mb-4">
             <Link to="/" className="text-2xl font-bold text-black dark:text-white">
               Trust Center Search
-            </Link>
-            <Link to="/add-trust-center">
-              <Button variant="ghost" size="sm" className="text-xs">
-                Add Center
-              </Button>
             </Link>
           </div>
           
