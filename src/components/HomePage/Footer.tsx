@@ -1,14 +1,15 @@
 
 import React from 'react';
 import { Github, Twitter, Mail, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Separator } from '@/components/ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { toast } from '@/components/ui/sonner';
-import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const isMobile = useIsMobile();
+  
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
     toast.success("Link copied to clipboard", {
@@ -43,31 +44,31 @@ const Footer: React.FC = () => {
             <h3 className="text-lg md:text-xl font-bold text-primary">Links</h3>
             {/* Company links - horizontal on mobile, vertical on desktop */}
             <div className={isMobile ? "flex flex-wrap justify-center gap-4 pt-1" : "space-y-3 pt-1 flex flex-col items-end"}>
-              <a href="#" className="group text-sm md:text-base text-muted-foreground hover:text-trust-primary transition-colors">
+              <a href="#" className="group text-sm md:text-base text-muted-foreground hover:text-primary transition-colors">
                 <span className="border-b border-transparent group-hover:border-current transition-colors">About Us</span>
               </a>
-              <a href="#" className="group text-sm md:text-base text-muted-foreground hover:text-trust-primary transition-colors">
+              <a href="#" className="group text-sm md:text-base text-muted-foreground hover:text-primary transition-colors">
                 <span className="border-b border-transparent group-hover:border-current transition-colors">Privacy Policy</span>
               </a>
-              <a href="#" className="group text-sm md:text-base text-muted-foreground hover:text-trust-primary transition-colors">
+              <a href="#" className="group text-sm md:text-base text-muted-foreground hover:text-primary transition-colors">
                 <span className="border-b border-transparent group-hover:border-current transition-colors">Terms of Service</span>
               </a>
-              <a href="#" className="group text-sm md:text-base text-muted-foreground hover:text-trust-primary transition-colors">
+              <a href="#" className="group text-sm md:text-base text-muted-foreground hover:text-primary transition-colors">
                 <span className="border-b border-transparent group-hover:border-current transition-colors">Contact</span>
               </a>
               
               {/* Social media icons */}
               <div className={`flex ${isMobile ? 'justify-center' : 'justify-end'} space-x-5 pt-2 mt-2`}>
-                <a href="#" aria-label="GitHub" className="hover:scale-110 transition-transform text-muted-foreground hover:text-trust-primary">
+                <a href="#" aria-label="GitHub" className="hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
                   <Github className="h-5 w-5 md:h-6 md:w-6 transition-colors" />
                 </a>
-                <a href="#" aria-label="Twitter" className="hover:scale-110 transition-transform text-muted-foreground hover:text-trust-primary">
+                <a href="#" aria-label="Twitter" className="hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
                   <Twitter className="h-5 w-5 md:h-6 md:w-6 transition-colors" />
                 </a>
-                <a href="#" aria-label="LinkedIn" className="hover:scale-110 transition-transform text-muted-foreground hover:text-trust-primary">
+                <a href="#" aria-label="LinkedIn" className="hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
                   <Linkedin className="h-5 w-5 md:h-6 md:w-6 transition-colors" />
                 </a>
-                <a href="#" aria-label="Email" className="hover:scale-110 transition-transform text-muted-foreground hover:text-trust-primary">
+                <a href="#" aria-label="Email" className="hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
                   <Mail className="h-5 w-5 md:h-6 md:w-6 transition-colors" />
                 </a>
               </div>
@@ -87,4 +88,3 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
-
