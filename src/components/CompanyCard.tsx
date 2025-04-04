@@ -44,4 +44,3 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, layout = 'grid' }) =
 };
 
 export default CompanyCard;
-

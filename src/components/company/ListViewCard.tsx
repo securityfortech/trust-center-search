@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ExternalLink, Copy, Check } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -21,12 +22,10 @@ const ListViewCard: React.FC<ListViewCardProps> = ({
   const { copied, handleCopyLink } = useClipboard(company);
   
   return (
-    <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in flex flex-row overflow-hidden border-trust-light/20 dark:border-trust-dark/30">
+    <Card className="w-full transition-all duration-300 hover:shadow-md animate-fade-in flex flex-row overflow-hidden border-gray-200 dark:border-gray-700">
       <div className="flex-grow p-4 flex flex-col md:flex-row md:items-center">
         <div className="md:w-1/3">
-          <h3 
-            className="text-lg font-medium truncate bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent"
-          >
+          <h3 className="text-lg font-medium truncate text-gray-800 dark:text-gray-200">
             {company.Company}
           </h3>
         </div>
@@ -38,7 +37,7 @@ const ListViewCard: React.FC<ListViewCardProps> = ({
                 <Badge 
                   key={cert} 
                   variant="secondary" 
-                  className="text-xs bg-trust-primary/10 hover:bg-trust-primary/20 text-trust-primary dark:bg-trust-secondary/20 dark:hover:bg-trust-secondary/30 dark:text-trust-secondary"
+                  className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300"
                 >
                   {cert}
                 </Badge>
@@ -56,10 +55,10 @@ const ListViewCard: React.FC<ListViewCardProps> = ({
                     <Button 
                       size="sm" 
                       variant="outline" 
-                      className="h-8 bg-white/80 dark:bg-gray-800/80 border-trust-primary/20 dark:border-trust-secondary/20 hover:bg-trust-light/20 dark:hover:bg-trust-dark/30"
+                      className="h-8 bg-white/80 dark:bg-gray-800/80 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
                       onClick={() => handleCopyLink(company['Trust Center URL'])}
                     >
-                      {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4 text-trust-primary dark:text-trust-secondary" />}
+                      {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4 text-gray-700 dark:text-gray-300" />}
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -74,7 +73,7 @@ const ListViewCard: React.FC<ListViewCardProps> = ({
                     <Button 
                       size="sm" 
                       variant="default"
-                      className="h-8 bg-trust-primary hover:bg-trust-dark dark:bg-trust-secondary dark:hover:bg-trust-accent"
+                      className="h-8 bg-gray-800 hover:bg-black dark:bg-gray-200 dark:hover:bg-white dark:text-gray-800"
                       asChild
                     >
                       <a 

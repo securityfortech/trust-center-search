@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ExternalLink, Copy, Check } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,13 +22,11 @@ const GridViewCard: React.FC<GridViewCardProps> = ({
   const { copied, handleCopyLink } = useClipboard(company);
   
   return (
-    <Card className="w-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 animate-fade-in h-full flex flex-col border-trust-light/20 dark:border-trust-dark/30 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-1"></div>
+    <Card className="w-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 animate-fade-in h-full flex flex-col border-gray-200 dark:border-gray-700 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-1 bg-gray-200 dark:bg-gray-700"></div>
       <CardHeader className="pb-2">
         <CardTitle className="text-xl flex justify-between items-center">
-          <span 
-            className="truncate pr-2 bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent font-bold"
-          >
+          <span className="truncate pr-2 text-gray-800 dark:text-gray-200 font-bold">
             {company.Company}
           </span>
           {company['Trust Center URL'] && (
@@ -38,7 +37,7 @@ const GridViewCard: React.FC<GridViewCardProps> = ({
                     href={company['Trust Center URL']} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-trust-primary hover:text-trust-dark dark:text-trust-secondary dark:hover:text-trust-light transition-colors flex-shrink-0"
+                    className="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors flex-shrink-0"
                     aria-label={`Visit ${company.Company}'s trust center`}
                   >
                     <ExternalLink className="h-5 w-5" />
@@ -65,7 +64,7 @@ const GridViewCard: React.FC<GridViewCardProps> = ({
             <Button
               variant="outline"
               size="sm"
-              className="text-xs flex-1 h-8 bg-white/70 dark:bg-gray-800/70 border-trust-primary/20 dark:border-trust-secondary/20 hover:bg-trust-light/20 dark:hover:bg-trust-dark/30 text-trust-primary dark:text-trust-secondary"
+              className="text-xs flex-1 h-8 bg-white/70 dark:bg-gray-800/70 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
               onClick={() => handleCopyLink(company['Trust Center URL'])}
             >
               {copied ? <Check className="h-3 w-3 mr-1 text-green-500" /> : <Copy className="h-3 w-3 mr-1" />}
@@ -74,7 +73,7 @@ const GridViewCard: React.FC<GridViewCardProps> = ({
             <Button
               variant="default"
               size="sm"
-              className="text-xs flex-1 h-8 bg-trust-primary hover:bg-trust-dark dark:bg-trust-secondary dark:hover:bg-trust-accent"
+              className="text-xs flex-1 h-8 bg-gray-800 hover:bg-black dark:bg-gray-200 dark:hover:bg-white dark:text-gray-800"
               asChild
             >
               <a 
@@ -95,7 +94,7 @@ const GridViewCard: React.FC<GridViewCardProps> = ({
               <Badge 
                 key={cert} 
                 variant="secondary" 
-                className="text-xs bg-trust-primary/10 hover:bg-trust-primary/20 text-trust-primary dark:bg-trust-secondary/20 dark:hover:bg-trust-secondary/30 dark:text-trust-secondary"
+                className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300"
               >
                 {cert}
               </Badge>
