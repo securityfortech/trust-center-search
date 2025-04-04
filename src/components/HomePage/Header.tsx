@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Search, ExternalLink, HelpCircle } from 'lucide-react';
 import SearchBar from '@/components/SearchBar';
@@ -7,17 +8,21 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+
 interface HeaderProps {
   onSearch: (searchTerm: string) => void;
   totalCompanies: number;
 }
+
 const Header: React.FC<HeaderProps> = ({
   onSearch,
   totalCompanies
 }) => {
   const isMobile = useIsMobile();
+
   if (isMobile) {
-    return <header className="bg-background dark:bg-gray-900 pt-6 pb-3 flex flex-col items-center justify-center animate-fade-in">
+    return (
+      <header className="bg-background dark:bg-gray-900 pt-6 pb-3 flex flex-col items-center justify-center animate-fade-in">
         <div className="container mx-auto px-4 flex flex-col items-center">
           <div className="w-full flex items-center justify-between mb-4">
             <Link to="/" className="text-2xl font-bold text-black dark:text-white">
@@ -40,18 +45,19 @@ const Header: React.FC<HeaderProps> = ({
             <SearchBar onSearch={onSearch} placeholder="Search for a company's trust center..." />
           </div>
         </div>
-      </header>;
+      </header>
+    );
   }
-  return <header className="bg-background dark:bg-gray-900 flex flex-col items-center justify-center min-h-[30vh] pb-2 animate-fade-in relative">
+
+  return (
+    <header className="bg-background dark:bg-gray-900 flex flex-col items-center justify-center min-h-[30vh] pb-2 animate-fade-in relative">
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute w-full h-full opacity-[0.02]" style={{
-        backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
-      }}></div>
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
+        }}></div>
       </div>
       
       <div className="container mx-auto px-4 flex flex-col items-center relative">
-        
-        
         <div className="mb-12 md:mb-14 text-center animate-slide-down">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 bg-gradient-to-r from-trust-primary via-trust-secondary to-trust-accent bg-clip-text text-transparent">
             Trust Center Search
@@ -67,6 +73,8 @@ const Header: React.FC<HeaderProps> = ({
           <p className="text-xs text-muted-foreground text-center mt-2">Try searching for companies like "Google", "Microsoft", or "Amazon"</p>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default Header;
