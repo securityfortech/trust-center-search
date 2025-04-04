@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Search, ExternalLink, HelpCircle } from 'lucide-react';
+import { Search } from 'lucide-react';
 import SearchBar from '@/components/SearchBar';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from 'react-router-dom';
